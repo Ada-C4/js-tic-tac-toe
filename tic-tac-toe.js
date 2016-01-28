@@ -1,24 +1,54 @@
 function TicTacToe() {
-  this.board = [[0,0,0],[0,0,0],[0,0,0]];
+  this.board = ["","","","","","","","",""];
   this.state = "new game";
   this.turn_count = 0;
+  this.player_one = "X";
+  this.player_two = "O";
+  this.whose_turn = this.player_one;
 }
 
 TicTacToe.prototype = {
   turn: function() {
-    if (this.state == "game over") {
+    if (this.checkState === false) {
       return false;
     }
-    if (this.turn_count == 9) {
-      this.state = "game over";
+    else {
+      if (this.board[0] === "") {
+        clickCell("#one", "X");
+        this.board[0] = "X";
+      }
+      console.log("A turn has occurred");
+      console.log(this.board);
+      this.endTurn();
     }
-    click("#one", "X");
-    console.log("A turn has occurred");
-    this.turn_count += 1;
   }
 };
 
-var click = function(cell, print) {
+TicTacToe.prototype.checkState = function() {
+  if (this.state == "game over") {
+    return false;
+  }
+  else if (this.turn_count == 9) {
+    this.state = "game over";
+    return false;
+  }
+  else {
+    return true;
+  }
+};
+
+TicTacToe.prototype.endTurn = function() {
+  this.turn_count += 1;
+  if (this.whose_turn == this.player_one) {
+    this.whose_turn = this.player_two;
+  }
+  else {
+    this.whose_turn = this.player_one;
+  }
+};
+
+
+var clickCell = function(cell, print) {
   $(cell).click(function () {
     $(this).append(print);
   });
