@@ -6,6 +6,20 @@ function TicTacToe() {
 
 TicTacToe.prototype = {
   turn: function() {
+    if (this.state == "game over") {
+      return false;
+    }
+    if (this.turn_count == 9) {
+      this.state = "game over";
+    }
+    click("#one", "X");
     console.log("A turn has occurred");
+    this.turn_count += 1;
   }
+};
+
+var click = function(cell, print) {
+  $(cell).click(function () {
+    $(this).append(print);
+  });
 };
