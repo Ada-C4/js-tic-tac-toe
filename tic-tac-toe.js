@@ -9,7 +9,7 @@ function TicTacToe() {
 
 TicTacToe.prototype = {
   turn: function(cell_id) {
-    if (this.checkState === false) {
+    if (this.checkState() === false) {
       return false;
     }
     else {
@@ -17,6 +17,9 @@ TicTacToe.prototype = {
       console.log("A turn has occurred");
       console.log(this.board);
       this.endTurn();
+      console.log(this.turn_count);
+      console.log(this.state);
+      this.checkWin();
     }
   }
 };
@@ -49,4 +52,32 @@ TicTacToe.prototype.endTurn = function() {
   else {
     this.whose_turn = this.player_one;
   }
+};
+
+TicTacToe.prototype.checkWin = function() {
+  if (this.board[0] == this.board[1] && this.board[1] == this.board[2]) {
+    this.state = "game over";
+  }
+  else if (this.board[3] == this.board[4] && this.board[4] == this.board[5]) {
+    this.state = "game over";
+  }
+  else if (this.board[6] == this.board[7] && this.board[7] == this.board[8]) {
+    this.state = "game over";
+  }
+  else if (this.board[0] == this.board[3] && this.board[3] == this.board[6]) {
+    this.state = "game over";
+  }
+  else if (this.board[1] == this.board[4] && this.board[4] == this.board[7]) {
+    this.state = "game over";
+  }
+  else if (this.board[2] == this.board[5] && this.board[5] == this.board[8]) {
+    this.state = "game over";
+  }
+  else if (this.board[2] == this.board[4] && this.board[4] == this.board[6]) {
+    this.state = "game over";
+  }
+  else if (this.board[0] == this.board[4] && this.board[4] == this.board[8]) {
+    this.state = "game over";
+  }
+  return this.state;
 };
