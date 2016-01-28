@@ -12,19 +12,19 @@
         <div class="col-md-5 col-md-offset-3">
           <div class="row"><h1>Tic Tac Fro</h1></div>
           <div class="row">
-            <div id="row0col0" class="col-xs-4 square"><img class="img-responsive"></div>
-            <div id="row0col1" class="col-xs-4 square"><img class="img-responsive"></div>
-            <div id="row0col2" class="col-xs-4 square"><img class="img-responsive"></div> 
+            <div id="row0col0" class="col-xs-4 square" data-row="0" data-col="0"><img class="img-responsive"></div>
+            <div id="row0col1" class="col-xs-4 square" data-row="0" data-col="1"><img class="img-responsive"></div>
+            <div id="row0col2" class="col-xs-4 square" data-row="0" data-col="2"><img class="img-responsive"></div> 
           </div> 
           <div class="row">
-            <div id="row1col0" class="col-xs-4 square"><img class="img-responsive"></div>
-            <div id="row1col1" class="col-xs-4 square"><img class="img-responsive"></div>
-            <div id="row1col2" class="col-xs-4 square"><img class="img-responsive"></div>  
+            <div id="row1col0" class="col-xs-4 square" data-row="1" data-col="0"><img class="img-responsive"></div>
+            <div id="row1col1" class="col-xs-4 square" data-row="1" data-col="1"><img class="img-responsive"></div>
+            <div id="row1col2" class="col-xs-4 square" data-row="1" data-col="2"><img class="img-responsive"></div>  
           </div>
           <div class="row">
-            <div id="row2col0" class="col-xs-4 square"><img class="img-responsive"></div>
-            <div id="row2col1" class="col-xs-4 square"><img class="img-responsive"></div>
-            <div id="row2col2" class="col-xs-4 square"><img class="img-responsive"></div>
+            <div id="row2col0" class="col-xs-4 square" data-row="2" data-col="0"><img class="img-responsive"></div>
+            <div id="row2col1" class="col-xs-4 square" data-row="2" data-col="1"><img class="img-responsive"></div>
+            <div id="row2col2" class="col-xs-4 square" data-row="2" data-col="2"><img class="img-responsive"></div>
           </div>  
         </div>
       </div>
@@ -37,7 +37,10 @@
     $(document).on('ready', function() {
       var gameBoard = new TicTacToe();
       gameBoard.start();
-    });
+      $('.square').click(function() {
+        gameBoard.makeMove($(this));
+      });
+  });
   </script>
 </html>
 
