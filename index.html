@@ -13,35 +13,35 @@
         <tbody>
           <tr>
             <td>
-              <div class="trooper"></div>
+              <div id="1" class="trooper square"></div>
             </td>
             <td>
-              <div class="vader"></div>
+              <div id="2" class="vader square"></div>
             </td>
             <td>
-              <div></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div></div>
-            </td>
-            <td>
-              <div></div>
-            </td>
-            <td>
-              <div></div>
+              <div id="3" class="square"></div>
             </td>
           </tr>
           <tr>
             <td>
-              <div></div>
+              <div id="4" class="square"></div>
             </td>
             <td>
-              <div></div>
+              <div id="5" class="square"></div>
             </td>
             <td>
-              <div></div>
+              <div id="6" class="square"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div id="7" class="square"></div>
+            </td>
+            <td>
+              <div id="8" class="square"></div>
+            </td>
+            <td>
+              <div id="9" class="square"></div>
             </td>
           </tr>
         </tbody>
@@ -54,7 +54,7 @@
     $(document).on('ready', function() {
       tictac = new TicTacToe();
       tictac.begin();
-      tictac.markSquare(1);
+      tictac.gamePlay();
     })
   </script>
 

@@ -1,15 +1,33 @@
+//click handler
+  $(".square").click(function () {
+    var squareid = $(this).attr("id");
+    tictac.markSquare(squareid);
+  });
+
+
+//game logic
 function TicTacToe () {
-  // var board = [[0, 0 ,0], [0, 0, 0], [0, 0, 0]];
 };
 
 TicTacToe.prototype.begin = function(){
-      console.log("game has begun");
+  console.log("game has begun");
+  this.board = [[0,0,0], [0,0,0],[0,0,0]];
+  //set up everything for a new game, if needed
+};
+
+TicTacToe.prototype.gamePlay = function(){
+  console.log("gameplay has begun");
+  //start turn taking, check to see what's up with board, etc
+  //check to see if game is over, etc
+};
+
+
+TicTacToe.prototype.markSquare = function(squareid) {
+    console.log(this.board);
     };
 
 
-// TicTacToe.prototype.markSquare = function () {
-//       return true;
-//     };
+
 
 
 
@@ -30,6 +48,3 @@ TicTacToe.prototype.begin = function(){
     //   //show a message at the end
     // };
     //
-    // this.markSquare = function () {
-    //
-    // };
