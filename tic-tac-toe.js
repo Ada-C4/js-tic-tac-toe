@@ -12,8 +12,8 @@ TicTacToe.prototype.playTurn = function(row, column) {
   this.board[row][column] = this.current_player;
   this.checkWinningBoard();
   if (this.winner === this.current_player) {
-    return;
-    // deal with winning here
+    $("table").remove();
+    $("#board").append("Player " + this.winner + " wins!");
   } else if (this.current_player === 1) {
     this.current_player = 2;
     this.current_player_marker = "🙈";
