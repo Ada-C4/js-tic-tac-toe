@@ -1,3 +1,19 @@
 html {
-  
+
+}
+
+body {
+  font-family: 'Oxygen Mono';
+  color: #3f0080;
+  text-align: center;
+}
+.square {
+  width: 8rem;
+  height: 8rem;
+  margin: auto;
+  padding: 0;
+  border: 3px solid;
+  background-color: #e5ccff; color: #3f0080;
+  display: inline-block;
+  border-radius: 10%;
 }
