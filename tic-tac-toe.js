@@ -20,6 +20,29 @@ function TicTacToe() {
   this.nine = this.rowThree[2];
 }
 
+TicTacToe.prototype.positionAsAttribute = function(position) {
+  switch (position) {
+    case '1':
+      return this.one;
+    case '2':
+      return this.two;
+    case '3':
+      return this.three;
+    case '4':
+      return this.four;
+    case '5':
+      return this.five;
+    case '6':
+      return this.six;
+    case '7':
+      return this.seven;
+    case '8':
+      return this.eight;
+    case '9':
+      return this.nine;
+  }
+};
+
 TicTacToe.prototype.selectTilePlayerOne = function (position) {
   switch (position) {
     case '1':
@@ -84,11 +107,15 @@ TicTacToe.prototype.selectTilePlayerTwo = function (position) {
   }
 };
 
-TicTacToe.prototype.whoseTurn = function (position) {
-  if (this.turn === true) {
-    this.selectTilePlayerOne(position);
-  } else if (this.turn === false) {
-    this.selectTilePlayerTwo(position);
+TicTacToe.prototype.play = function (position) {
+  var positionValue = this.positionAsAttribute(position);
+  if ( positionValue === 0) {
+    if (this.turn === true) {
+      this.selectTilePlayerOne(position);
+    } else if (this.turn === false) {
+      this.selectTilePlayerTwo(position);
+    }
+    this.turn = !this.turn;
   }
 };
 

@@ -8,6 +8,7 @@
 
   <body>
     <h1>Tic Tac Toe</h1>
+    <h3 id="whose-turn"></h3>
     <div id="tic-tac-toe">
     	<table>
     		<tr id="rowOne">
@@ -18,7 +19,7 @@
     		<tr id="rowTwo">
           <td id="4"></td>
           <td id="5"></td>
-          <td id-"6"></td>
+          <td id="6"></td>
         </tr>
         <tr id="rowThree">
           <td id="7"></td>
@@ -26,6 +27,8 @@
           <td id="9"></td>
         </tr>
       </table>
+      <h3>player 1 - x</h3>
+      <h3>player 2 - o</h3>
     </div>
   </body>
 
@@ -47,58 +50,52 @@
       //   })
       // }
 
+      // show whose turn it is
+
+
+      // on click, change the game.board, change the display, and change the turn
+
       $('#1').click(function () {
-        game.whoseTurn('1');
+        game.play('1');
         $('#1').text(game.one)
-        game.turn = !game.turn
       });
       $('#2').click(function () {
-        game.whoseTurn('2');
+        game.play('2');
         $('#2').text(game.two)
-        game.turn = !game.turn
       });
       $('#3').click(function () {
-        game.whoseTurn('3');
+        game.play('3');
         $('#3').text(game.three)
-        game.turn = !game.turn
       });
       $('#4').click(function () {
-        game.whoseTurn('4');
+        game.play('4');
         $('#4').text(game.four)
-        game.turn = !game.turn
       });
       $('#5').click(function () {
-        game.whoseTurn('5');
+        game.play('5');
         $('#5').text(game.five)
-        game.turn = !game.turn
       });
       $('#6').click(function () {
-        game.whoseTurn('6');
+        game.play('6');
         $('#6').text(game.six)
-        game.turn = !game.turn
       });
       $('#7').click(function () {
-        game.whoseTurn('7');
+        game.play('7');
         $('#7').text(game.seven)
-        game.turn = !game.turn
       });
       $('#8').click(function () {
-        game.whoseTurn('8');
+        game.play('8');
         $('#8').text(game.eight)
-        game.turn = !game.turn
       });
       $('#9').click(function () {
-        game.whoseTurn('9');
+        game.play('9');
         $('#9').text(game.nine)
-        game.turn = !game.turn
       });
 
 
       // represent tiles based on what's in the position
 
       // 
-
-      console.log(game.rowOne)
 
     })
   </script>
