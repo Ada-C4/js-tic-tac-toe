@@ -11,19 +11,19 @@
     <div id="tic-tac-toe">
     	<table>
     		<tr id="rowOne">
-    			<td></td>
-    			<td></td>
-    			<td></td>
+    			<td id="oneOne"></td>
+    			<td id="oneTwo"></td>
+    			<td id="oneThree"></td>
     		</tr>
     		<tr id="rowTwo">
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="twoOne"></td>
+          <td id="twoTwo"></td>
+          <td id-"twoThree"></td>
         </tr>
         <tr id="rowThree">
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="threeOne"></td>
+          <td id="threeTwo"></td>
+          <td id="threeThree"></td>
         </tr>
       </table>
     </div>
@@ -36,7 +36,7 @@
     $(document).on('ready', function() {
       var game = new TicTacToe ();
       $('#rowOne').innerHTML = game.rowOne;
-      console.log(game.board);
+      console.log(game.rowOne);
 
 
     })
