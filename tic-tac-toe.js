@@ -7,6 +7,9 @@ TicTacToe.prototype = {
   // board: [["", "", ""], ["", "", ""], ["", "", ""]],
   // choices: ["", "X", "O"],
   board_spaces: ["r1c1", "r1c2", "r1c3", "r2c1", "r2c2", "r2c3", "r3c1", "r3c2", "r3c3"],
+  player_1_score: [ 0, 0, 0, 0, 0, 0, 0, 0 ],
+  player_2_score: [ 0, 0, 0, 0, 0, 0, 0, 0 ],
+  //player_2_score = [ row1, row2, row3, col1, col2, col3, diagleft, diagright ]
 
   pickSpaces: function(){
     self = this;
@@ -22,10 +25,10 @@ TicTacToe.prototype = {
             player = 0;
           }
         }
+        self.updateScore(box, player);
         self.gameOver();
       });
     });
-
   },
 
   resetBoard: function(){
@@ -50,7 +53,53 @@ TicTacToe.prototype = {
       }
     });
     if (count === 0){
-      alert("Game Over!");
+      alert("It's a tie!");
+      self.board_spaces.forEach(function(box) {
+        $("." + box).css('background-color', 'blue');
+      });
     }
+  },
+
+  updateScore: function(space, player) {
+    self = this;
+    if(space.substring(0,2) == "r1") {
+      if (player === 0) {
+        self.player_1_score[0]++;
+      } else {
+        self.player_2_score[0]++;
+      }
+    } else if (space.substring(0,2) == "r2") {
+      if (player === 0) {
+        self.player_1_score[1]++;
+      } else {
+        self.player_2_score[1]++;
+      }
+    } else if (space.substring(0,2) == "r3") {
+      if (player === 0) {
+        self.player_1_score[2]++;
+      } else {
+        self.player_2_score[2]++;
+      }
+    }
+    self.checkForWinner();
+  },
+
+  checkForWinner: function() {
+    self = this;
+    self.player_1_score.forEach(function(score) {
+      if (score == 3) {
+        alert("Player 1 wins!");
+        self.resetBoard();
+      }
+    });
+    self.player_2_score.forEach(function(score) {
+      if (score == 3) {
+        alert("Player 2 wins!");
+        self.resetBoard();
+      }
+    });
+    // player_1_score = [ row1, row2, row3, col1, col2, col3, diagleft, diagright ]
+    // player_2_score = [ row1, row2, row3, col1, col2, col3, diagleft, diagright ]
+
   },
 };
