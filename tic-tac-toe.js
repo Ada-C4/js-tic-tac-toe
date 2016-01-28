@@ -1,16 +1,22 @@
 function TicTacToe() {
-	this.board = [[0,0,0],[0,0,0],[0,0,0]];
-	this.currentPlayer = 1;
 	this.images = {
 		0 : 'images/empty.jpg',
 		1 : 'images/player1.png',
 		2 : 'images/player2.png'
 	};
-	this.gameOver = false;
-	this.winner = 0;
+	
 }
 
 TicTacToe.prototype.start = function() {
+	this.restart();
+	this.printGameboard();
+};
+
+TicTacToe.prototype.restart = function() {
+	this.board = [[0,0,0],[0,0,0],[0,0,0]];
+	this.currentPlayer = 1;
+	this.gameOver = false;
+	this.winner = 0;
 	this.printGameboard();
 };
 
