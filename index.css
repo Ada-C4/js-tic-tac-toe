@@ -1,3 +1,31 @@
 html {
-  
+
+}
+
+h1 {
+  text-align: center;
+}
+
+#tictactoe {
+  width: 80%;
+  margin: auto;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  display:inline-block;
+  background-color: blue;
+}
+
+#row1 {
+  width: 100%;
+}
+
+#row2 {
+  width: 100%;
+}
+
+.c1 {
+  margin-left: 200px;
 }
