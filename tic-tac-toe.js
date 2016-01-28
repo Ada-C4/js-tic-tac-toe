@@ -7,6 +7,7 @@ function TicTacToe() {
 		2 : 'images/player2.png'
 	};
 	this.gameOver = false;
+	this.winner = 0;
 }
 
 TicTacToe.prototype.start = function() {
@@ -30,9 +31,28 @@ TicTacToe.prototype.makeMove = function(el) {
 		this.board[row][col] = this.currentPlayer;
 		this.currentPlayer = this.currentPlayer === 1? 2 : 1;	
 		this.printGameboard();
+		this.checkGameOver();
 	}
 };
 
 TicTacToe.prototype.checkGameOver = function() {
-
+	for (var i = 0; i < this.board.length; i++) {
+		// horizontal win
+		if (this.board[i][0] === this.board[i][1] && this.board[i][1] === this.board[i][2]){
+			this.gameOver = true;
+			this.winner = this.board[i][0];
+		}
+		// vertical win
+		if (this.board[0][i] === this.board[1][i] && this.board[1][i] === this.board[2][i]){
+			this.gameOver = true;
+			this.winner = this.board[0][i];
+		}
+		// diagonal win
+		if (this.board[0][0] == this.board[1][1] && this.board[1][1] == this.board[2][2] ||
+			this.board[2][0] == this.board [1][1] && this.board[1][1] == this.board[0][2]){
+			this.gameOver = true;
+			this.winner = this.board[1][1];
+		}
+	}
+	if (this.winner) { console.log('Won!'); }
 };
