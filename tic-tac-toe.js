@@ -1,7 +1,9 @@
 //click handler
-  $(".square").click(function () {
-    var squareid = $(this).attr("id");
-    tictac.markSquare(squareid);
+  $("td").click(function () {
+    var rowInd = (this.parentNode).rowIndex;
+    var colInd = this.cellIndex;
+    var coordinates = [rowInd, colInd];
+    tictac.markSquare(coordinates);
   });
 
 
@@ -22,8 +24,8 @@ TicTacToe.prototype.gamePlay = function(){
 };
 
 //changes the array contents based on square that was clicked
-TicTacToe.prototype.markSquare = function(squareid) {
-    console.log(this.board[1]);
+TicTacToe.prototype.markSquare = function(coordinates) {
+    console.log(coordinates);
     };
 
 
