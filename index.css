@@ -1,5 +1,18 @@
+body {
+  background-color: #80d4ea;
+  font-family: courier, monospace;
+  color: white;
+}
+
+h1 {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
 table, td {
-  border: 2px solid black;
+  border: 2px solid white;
+  margin: auto;
 }
 
 table {

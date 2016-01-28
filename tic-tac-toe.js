@@ -14,11 +14,7 @@ TicTacToe.prototype = {
     }
     else {
       this.markCell(cell_id, this.whose_turn);
-      console.log("A turn has occurred");
-      console.log(this.board);
-      this.endTurn();
-      console.log(this.turn_count);
-      console.log(this.state);
+      this.incrementTurn();
       this.checkWin();
     }
   }
@@ -44,7 +40,7 @@ TicTacToe.prototype.markCell = function(cell, player) {
   }
 };
 
-TicTacToe.prototype.endTurn = function() {
+TicTacToe.prototype.incrementTurn = function() {
   this.turn_count += 1;
   if (this.whose_turn == this.player_one) {
     this.whose_turn = this.player_two;
