@@ -1,3 +1,6 @@
-html {
-  
+.board {
+  height: 100px;
+  width: 100px;
+  background-color: green;
+  display: inline-block;
 }
