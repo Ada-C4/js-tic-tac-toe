@@ -9,21 +9,23 @@
   <body>
     <h1>Tic Tac Toe</h1>
     <div id="tic-tac-toe">
-      <div class="r1">
-        <div class="square" id="r1c1"></div>
-        <div class="square" id="r1c2"></div>
-        <div class="square" id="r1c3"></div>
-      </div>
-      <div class="r2">
-        <div class="square" id="r2c1"></div>
-        <div class="square" id="r2c2"></div>
-        <div class="square" id="r2c3"></div>
-      </div>
-      <div class="r3">
-        <div class="square" id="r3c1"></div>
-        <div class="square" id="r3c2"></div>
-        <div class="square" id="r3c3"></div>
-      </div>
+      <table align="center">
+        <tr class="r1">
+          <td class="square" id="r1c1"></td>
+          <td class="square" id="r1c2"></td>
+          <td class="square" id="r1c3"></td>
+        </tr>
+        <tr class="r2">
+          <td class="square" id="r2c1"></td>
+          <td class="square" id="r2c2"></td>
+          <td class="square" id="r2c3"></td>
+        </tr>
+        <tr class="r3">
+          <td class="square" id="r3c1"></td>
+          <td class="square" id="r3c2"></td>
+          <td class="square" id="r3c3"></td>
+        </tr>
+      </table>
     </div>
   </body>
 
@@ -31,7 +33,7 @@
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
-      console.log('create and begin the game here!');
+      var game = new TicTacToe();
     })
   </script>
 </html>
