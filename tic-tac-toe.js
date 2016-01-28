@@ -10,9 +10,13 @@ TicTacToe.prototype.addSymbolOnClick = function() {
   this.board_spaces.forEach(function(space) {
     $("#" + space).click(function() {
       $("#" + space).text(self.getSymbol());
-      self.x = !self.x;
+      self.changePlayer();
     });
-  })
+  });
+};
+
+TicTacToe.prototype.changePlayer = function() {
+  this.x = !this.x;
 };
 
 TicTacToe.prototype.getSymbol = function() {
