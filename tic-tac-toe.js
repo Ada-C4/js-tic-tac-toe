@@ -2,7 +2,7 @@
   $("td").click(function () {
     var rowInd = (this.parentNode).rowIndex;
     var colInd = this.cellIndex;
-    var coordinates = [rowInd, colInd];
+    var coordinates = {row: rowInd, col: colInd}; //returns coordinates in a hash
     tictac.markSquare(coordinates);
   });
 
@@ -27,26 +27,3 @@ TicTacToe.prototype.gamePlay = function(){
 TicTacToe.prototype.markSquare = function(coordinates) {
     console.log(coordinates);
     };
-
-
-
-
-
-
-    //
-
-    // this.endgame = fu
-    // nction () {
-    //   //ends the game
-    // };
-    //
-    // this.gameover = function () {
-    //   //checks to see if the game is over
-    //   //calls endgame if it is
-    // };
-    //
-    // this.finalDisplay = function () {
-    //   //the game has ended, and endgame calls this method to
-    //   //show a message at the end
-    // };
-    //
