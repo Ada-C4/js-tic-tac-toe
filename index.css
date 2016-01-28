@@ -18,6 +18,7 @@ div.row {
 }
 
 div.square {
+  text-align: center;
   border-radius: 25px;
   border: 2px solid #986977;
   background-color: #85967E;
@@ -25,4 +26,9 @@ div.square {
   width: 150px;
   margin: 5px;
   display: inline-block;
+}
+
+p {
+  position: absolute;
+  text-align: center;
 }
