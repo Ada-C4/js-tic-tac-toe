@@ -3,11 +3,11 @@ function TicTacToe() {
 }
 
 TicTacToe.prototype.start = function() {
-		console.log('Game has started');
+	console.log('Game has started');
 };
 
 TicTacToe.prototype.printGameboard = function() {
-
+	
 };
 
 TicTacToe.prototype.makeMove = function(row, col) {

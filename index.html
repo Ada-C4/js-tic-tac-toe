@@ -3,14 +3,35 @@
   <head>
     <title>Tic Tac Toe!</title>
     <meta charset="utf-8">
-    <link href="index.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="css/index.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
-
   <body>
-    <h1>Tic Tac Toe</h1>
-    <div id="tic-tac-toe"></div>
+    <div class="container">
+      <div id="tic-tac-toe" class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="row"><h1>Tic Tac Toe</h1></div>
+          <div class="row">
+            <div id="row0col0" class="col-xs-4">a</div>
+            <div id="row0col1" class="col-xs-4">a</div>
+            <div id="row0col2" class="col-xs-4">a</div> 
+          </div> 
+          <div class="row">
+            <div id="row1col0" class="col-xs-4">a</div>
+            <div id="row1col1" class="col-xs-4">a</div>
+            <div id="row1col2" class="col-xs-4">a</div>  
+          </div>
+          <div class="row">
+            <div id="row2col0" class="col-xs-4">a</div>
+            <div id="row2col1" class="col-xs-4">a</div>
+            <div id="row2col2" class="col-xs-4">a</div>
+          </div>  
+        </div>
+      </div>
+    </div>
   </body>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
