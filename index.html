@@ -11,19 +11,19 @@
     <div id="tic-tac-toe">
       <table>
         <tr>
-          <td id="one"></td>
-          <td id="two"></td>
-          <td id="three"></td>
+          <td id="0"></td>
+          <td id="1"></td>
+          <td id="2"></td>
         </tr>
         <tr>
-          <td id="four"></td>
-          <td id="five"></td>
-          <td id="six"></td>
+          <td id="3"></td>
+          <td id="4"></td>
+          <td id="5"></td>
         </tr>
         <tr>
-          <td id="seven"></td>
-          <td id="eight"></td>
-          <td id="nine"></td>
+          <td id="6"></td>
+          <td id="7"></td>
+          <td id="8"></td>
         </tr>
       </table>
     </div>
@@ -34,7 +34,7 @@
     $(document).on('ready', function() {
       var game = new TicTacToe();
       $("td").on("click", function() {
-        game.turn();
+        game.turn(this.id);
       });
     })
   </script>

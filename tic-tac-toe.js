@@ -1,5 +1,5 @@
 function TicTacToe() {
-  this.board = ["","","","","","","","",""];
+  this.board = ["0","1","2","3","4","5","6","7","8"];
   this.state = "new game";
   this.turn_count = 0;
   this.player_one = "X";
@@ -8,12 +8,12 @@ function TicTacToe() {
 }
 
 TicTacToe.prototype = {
-  turn: function() {
+  turn: function(cell_id) {
     if (this.checkState === false) {
       return false;
     }
     else {
-      this.markCell("#one", this.whose_turn);
+      this.markCell(cell_id, this.whose_turn);
       console.log("A turn has occurred");
       console.log(this.board);
       this.endTurn();
@@ -35,9 +35,9 @@ TicTacToe.prototype.checkState = function() {
 };
 
 TicTacToe.prototype.markCell = function(cell, player) {
-  if (this.board[0] === "") {
-    $(cell).append(player);
-    this.board[0] = "X";
+  if (this.board[cell.toString()] === cell.toString()) {
+    $("#" + cell).append(player);
+    this.board[cell.toString()] = player;
   }
 };
 
