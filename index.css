@@ -1,3 +1,22 @@
 html {
-  
+}
+
+
+table {
+  border: 3px solid black;
+}
+
+table tbody tr td div {
+  width: 100px;
+  height: 100px;
+}
+
+.trooper {
+  background-image: url("stormtrooper.jpg");
+  background-size: cover;
+}
+
+.vader {
+  background-image: url("vader.jpg");
+  background-size: cover;
 }
