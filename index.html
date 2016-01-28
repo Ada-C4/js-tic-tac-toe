@@ -12,18 +12,18 @@
     	<table>
     		<tr id="rowOne">
     			<td id="1"></td>
-    			<td id="oneTwo"></td>
-    			<td id="oneThree"></td>
+    			<td id="2"></td>
+    			<td id="3"></td>
     		</tr>
     		<tr id="rowTwo">
-          <td id="twoOne"></td>
-          <td id="twoTwo"></td>
-          <td id-"twoThree"></td>
+          <td id="4"></td>
+          <td id="5"></td>
+          <td id-"6"></td>
         </tr>
         <tr id="rowThree">
-          <td id="threeOne"></td>
-          <td id="threeTwo"></td>
-          <td id="threeThree"></td>
+          <td id="7"></td>
+          <td id="8"></td>
+          <td id="9"></td>
         </tr>
       </table>
     </div>
@@ -36,10 +36,67 @@
     $(document).on('ready', function() {
       var game = new TicTacToe ();
 
+      // creating array with all the position ids
+      // var positions = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-      $('#1').click(function(){
-        game.selectTile('1');
-      })
+      // for(i = 0; i < positions.length; i++) {
+      //   $('#' + positions[i]).click(function(){
+      //     game.selectTilePlayerOne(positions[i]);
+      //     console.log(game.rowOne)
+      //     console.log(positions[i])
+      //   })
+      // }
+
+      $('#1').click(function () {
+        game.whoseTurn('1');
+        $('#1').text(game.one)
+        game.turn = !game.turn
+      });
+      $('#2').click(function () {
+        game.whoseTurn('2');
+        $('#2').text(game.two)
+        game.turn = !game.turn
+      });
+      $('#3').click(function () {
+        game.whoseTurn('3');
+        $('#3').text(game.three)
+        game.turn = !game.turn
+      });
+      $('#4').click(function () {
+        game.whoseTurn('4');
+        $('#4').text(game.four)
+        game.turn = !game.turn
+      });
+      $('#5').click(function () {
+        game.whoseTurn('5');
+        $('#5').text(game.five)
+        game.turn = !game.turn
+      });
+      $('#6').click(function () {
+        game.whoseTurn('6');
+        $('#6').text(game.six)
+        game.turn = !game.turn
+      });
+      $('#7').click(function () {
+        game.whoseTurn('7');
+        $('#7').text(game.seven)
+        game.turn = !game.turn
+      });
+      $('#8').click(function () {
+        game.whoseTurn('8');
+        $('#8').text(game.eight)
+        game.turn = !game.turn
+      });
+      $('#9').click(function () {
+        game.whoseTurn('9');
+        $('#9').text(game.nine)
+        game.turn = !game.turn
+      });
+
+
+      // represent tiles based on what's in the position
+
+      // 
 
       console.log(game.rowOne)
 
