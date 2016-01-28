@@ -52,7 +52,10 @@
   <script type="text/javascript">
     $(document).on('ready', function() {
       var game = new TicTacToe();
-      game.play();
+      $(".square").one("click", function () {
+        $(this).append('<p>' + game.currentPlayer + '</p>');
+        game.play();
+      });
     })
   </script>
 </html>
