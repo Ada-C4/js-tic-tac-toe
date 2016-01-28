@@ -81,6 +81,42 @@ TicTacToe.prototype = {
         self.player_2_score[2]++;
       }
     }
+
+    if (space.substring(2,4) == "c1") {
+      if (player === 0) {
+        self.player_1_score[3]++;
+      } else {
+        self.player_2_score[3]++;
+      }
+    } else if (space.substring(2,4) == "c2") {
+      if (player === 0) {
+        self.player_1_score[4]++;
+      } else {
+        self.player_2_score[4]++;
+      }
+    } else if (space.substring(2,4) == "c3") {
+      if (player === 0) {
+        self.player_1_score[5]++;
+      } else {
+        self.player_2_score[5]++;
+      }
+    }
+
+    if ((space == "c1r1") || (space = "c2r2") || (space = "c3r3")) {
+      if (player === 0) {
+        self.player_1_score[6]++;
+      } else {
+        self.player_2_score[6]++;
+      }
+    }
+
+    if ((space == "c3r1") || (space = "c2r2") || (space = "c1r3")) {
+      if (player === 0) {
+        self.player_1_score[7]++;
+      } else {
+        self.player_2_score[7]++;
+      }
+    }
     self.checkForWinner();
   },
 
@@ -89,13 +125,21 @@ TicTacToe.prototype = {
     self.player_1_score.forEach(function(score) {
       if (score == 3) {
         alert("Player 1 wins!");
-        self.resetBoard();
+        self.board_spaces.forEach(function(box) {
+          $("." + box).css('background-color', 'blue');
+        });
+        self.player_1_score = [ 0, 0, 0, 0, 0, 0, 0, 0 ];
+        self.player_2_score = [ 0, 0, 0, 0, 0, 0, 0, 0 ];
       }
     });
     self.player_2_score.forEach(function(score) {
       if (score == 3) {
         alert("Player 2 wins!");
-        self.resetBoard();
+        self.board_spaces.forEach(function(box) {
+          $("." + box).css('background-color', 'blue');
+        });
+        self.player_1_score = [ 0, 0, 0, 0, 0, 0, 0, 0 ];
+        self.player_2_score = [ 0, 0, 0, 0, 0, 0, 0, 0 ];
       }
     });
     // player_1_score = [ row1, row2, row3, col1, col2, col3, diagleft, diagright ]
