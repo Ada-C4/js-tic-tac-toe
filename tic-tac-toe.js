@@ -1,16 +1,19 @@
-var TicTacToe = function () {
-}
+function TicTacToe () {
+  // var board = [[0, 0 ,0], [0, 0, 0], [0, 0, 0]];
+};
 
-TicTacToe.prototype = {
-    begin: function () {
+TicTacToe.prototype.begin = function(){
       console.log("game has begun");
-    }
-}
-
-TicTacToe.prototype.board = function () {
-      var board = [[0, 0 ,0], [0, 0, 0], [0, 0, 0]];
     };
 
+
+// TicTacToe.prototype.markSquare = function () {
+//       return true;
+//     };
+
+
+
+    //
 
     // this.endgame = fu
     // nction () {
