@@ -1,5 +1,6 @@
 function TicTacToe() {
-	this.board = [[0,1,0],[0,0,2],[1,0,0]];
+	this.board = [[0,0,0],[0,0,0],[0,0,0]];
+	this.currentPlayer = 1;
 	this.images = {
 		0 : 'images/empty.jpg',
 		1 : 'images/player1.png',
@@ -22,5 +23,9 @@ TicTacToe.prototype.printGameboard = function() {
 };
 
 TicTacToe.prototype.makeMove = function(row, col) {
-	this.board[row][col] = 1;
+	if (this.board[row][col] === 0) {
+		this.board[row][col] = this.currentPlayer;
+		this.currentPlayer = this.currentPlayer === 1? 2 : 1;	
+		this.printGameboard();
+	}
 };
