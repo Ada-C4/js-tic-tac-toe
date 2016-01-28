@@ -10,8 +10,8 @@ function TicTacToe () {
 };
 
 TicTacToe.prototype.begin = function(){
-  console.log("game has begun");
   this.board = [[0,0,0], [0,0,0],[0,0,0]];
+  console.log(this.board);
   //set up everything for a new game, if needed
 };
 
@@ -21,9 +21,9 @@ TicTacToe.prototype.gamePlay = function(){
   //check to see if game is over, etc
 };
 
-
+//changes the array contents based on square that was clicked
 TicTacToe.prototype.markSquare = function(squareid) {
-    console.log(this.board);
+    console.log(this.board[1]);
     };
 
 

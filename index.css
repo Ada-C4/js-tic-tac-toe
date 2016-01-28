@@ -6,17 +6,17 @@ table {
   border: 3px solid black;
 }
 
-table tbody tr td div {
+table tbody tr td {
   width: 100px;
   height: 100px;
+  background-size: cover;
+  background-position: center;
 }
 
 .trooper {
   background-image: url("stormtrooper.jpg");
-  background-size: cover;
 }
 
 .vader {
   background-image: url("vader.jpg");
-  background-size: cover;
 }
