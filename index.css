@@ -1,3 +1,93 @@
 html {
-  
+
+}
+
+body {
+  background-color: #7c8977
+}
+
+#top-row {
+  border-bottom: 2px solid red;
+  height: 166px;
+  width: 510px;
+}
+
+#mid-row {
+  height: 166px;
+  width: 510px;
+}
+
+#bottom-row {
+  border-top: 2px solid red;
+  height: 166px;
+  width: 510px;
+}
+
+.one {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+.two {
+  height: 166px;
+  width: 166px;
+  border-left: 4px solid red;
+  border-right: 4px solid red;
+  display: inline;
+  float: left;
+}
+
+.three {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+.four {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+.five {
+  height: 166px;
+  width: 166px;
+  border-right: 4px solid red;
+  border-left: 4px solid red;
+  display: inline;
+  float: left;
+}
+
+.six {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+.seven {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+.eight {
+  height: 166px;
+  width: 166px;
+  border-right: 4px solid red;
+  border-left: 4px solid red;
+  display: inline;
+  float: left;
+}
+
+.nine {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
 }
