@@ -10,6 +10,9 @@ function TicTacToe() {
   this.diagLeft = [this.rowOne[2], this.rowTwo[1], this.rowThree[0]];
 }
 
-TicTacToe.prototype.takeTurn = function () {
-  
+TicTacToe.prototype.selectTile = function (position) {
+  if (position == '1') {
+    this.rowOne[0] = 1;
+  }
+  console.log(this.rowOne);
 };
