@@ -32,27 +32,29 @@ TicTacToe.prototype.makeMove = function(el) {
 		this.currentPlayer = this.currentPlayer === 1? 2 : 1;	
 		this.printGameboard();
 		this.checkGameOver();
+		console.log(this.winner, this.gameOver);
 	}
 };
 
 TicTacToe.prototype.checkGameOver = function() {
 	for (var i = 0; i < this.board.length; i++) {
 		// horizontal win
-		if (this.board[i][0] === this.board[i][1] && this.board[i][1] === this.board[i][2]){
+		if (this.board[i][0] && 
+			(this.board[i][0] === this.board[i][1] && this.board[i][1] === this.board[i][2])){
 			this.gameOver = true;
 			this.winner = this.board[i][0];
 		}
 		// vertical win
-		if (this.board[0][i] === this.board[1][i] && this.board[1][i] === this.board[2][i]){
+		if (this.board[0][i] && 
+			(this.board[0][i] === this.board[1][i] && this.board[1][i] === this.board[2][i])){
 			this.gameOver = true;
 			this.winner = this.board[0][i];
 		}
 		// diagonal win
-		if (this.board[0][0] == this.board[1][1] && this.board[1][1] == this.board[2][2] ||
-			this.board[2][0] == this.board [1][1] && this.board[1][1] == this.board[0][2]){
+		if ((this.board[1][1] && this.board[0][0] == this.board[1][1] && this.board[1][1] == this.board[2][2]) ||
+			(this.board[1][1] && this.board[2][0] == this.board [1][1] && this.board[1][1] == this.board[0][2])){
 			this.gameOver = true;
 			this.winner = this.board[1][1];
 		}
 	}
-	if (this.winner) { console.log('Won!'); }
 };
