@@ -23,8 +23,13 @@ $(document).ready(function() {
   var game = new TicTacToe();
 
   $(".row_1.column_1").click(function(){
+    if (game.board[0][0] !== 0) {
+      throw new Error ("This spot is already claimed!");
+    }
     $(this).text(game.current_player_marker);
     game.play_turn(0,0);
   });
+
+  
 
 });
