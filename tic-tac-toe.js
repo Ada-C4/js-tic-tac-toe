@@ -16,6 +16,12 @@ function TicTacToe() {
       }
     });
   });
+
+  $('#reset-button').click(function() {
+    board_spaces.forEach(function(box) {
+      $("." + box).css('background-color', 'blue');
+  });
+});
 }
 
 TicTacToe.prototype = {
