@@ -32,7 +32,6 @@ TicTacToe.prototype.makeMove = function(el) {
 		this.currentPlayer = this.currentPlayer === 1? 2 : 1;	
 		this.printGameboard();
 		this.checkGameOver();
-		console.log(this.winner, this.gameOver);
 	}
 };
 
@@ -50,11 +49,15 @@ TicTacToe.prototype.checkGameOver = function() {
 			this.gameOver = true;
 			this.winner = this.board[0][i];
 		}
-		// diagonal win
-		if ((this.board[1][1] && this.board[0][0] == this.board[1][1] && this.board[1][1] == this.board[2][2]) ||
-			(this.board[1][1] && this.board[2][0] == this.board [1][1] && this.board[1][1] == this.board[0][2])){
-			this.gameOver = true;
-			this.winner = this.board[1][1];
-		}
+	}
+	// diagonal win
+	if ((this.board[1][1] && this.board[0][0] == this.board[1][1] && this.board[1][1] == this.board[2][2]) ||
+		(this.board[1][1] && this.board[2][0] == this.board [1][1] && this.board[1][1] == this.board[0][2])){
+		this.gameOver = true;
+		this.winner = this.board[1][1];
+	}
+	// tie
+	if (!this.board[0].includes(0) && !this.board[1].includes(0) && !this.board[2].includes(0)) {
+		this.gameOver = true;
 	}
 };
