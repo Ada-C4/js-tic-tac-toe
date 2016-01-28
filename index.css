@@ -1,6 +1,6 @@
 body {
   background-color: #80d4ea;
-  font-family: courier, monospace;
+  font-family: 'Oxygen', sans-serif;
   color: white;
 }
 
@@ -13,6 +13,7 @@ h1 {
 table, td {
   border: 2px solid white;
   margin: auto;
+  text-align: center;
 }
 
 table {

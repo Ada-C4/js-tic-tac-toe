@@ -7,30 +7,38 @@ function TicTacToe() {
   this.whose_turn = this.player_one;
 }
 
-TicTacToe.prototype = {
-  turn: function(cell_id) {
-    if (this.checkState() === false) {
-      return false;
-    }
-    else {
-      this.markCell(cell_id, this.whose_turn);
-      this.incrementTurn();
-      this.checkWin();
-    }
+TicTacToe.prototype.turn = function(cell_id) {
+  if (this.checkGameOver() === true) {
+    return;
+  }
+  else if (this.checkCellTaken(cell_id) === true) {
+    return;
+  }
+  else {
+    this.markCell(cell_id, this.whose_turn);
+    this.incrementTurn();
+    this.checkWin();
   }
 };
 
-TicTacToe.prototype.checkState = function() {
+TicTacToe.prototype.checkGameOver = function() {
   if (this.state == "game over") {
-    return false;
+    return true;
   }
   else if (this.turn_count == 9) {
     this.state = "game over";
-    return false;
-  }
-  else {
     return true;
   }
+  else {
+    return false;
+  }
+};
+
+TicTacToe.prototype.checkCellTaken = function(cell_id) {
+  if (this.board[cell_id] == this.player_one || this.board[cell_id] == this.player_two) {
+    return true;
+  }
+  return false;
 };
 
 TicTacToe.prototype.markCell = function(cell, player) {
