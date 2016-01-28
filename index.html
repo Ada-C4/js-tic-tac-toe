@@ -33,11 +33,9 @@
   <script type="text/javascript">
     $(document).on('ready', function() {
       var game = new TicTacToe();
-      console.log(game.whose_turn);
-      game.turn();
-      console.log(game.whose_turn);
-      game.turn();
-      console.log(game.whose_turn);
+      $("td").on("click", function() {
+        game.turn();
+      });
     })
   </script>
 </html>

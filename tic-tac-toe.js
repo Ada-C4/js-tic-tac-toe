@@ -13,10 +13,7 @@ TicTacToe.prototype = {
       return false;
     }
     else {
-      if (this.board[0] === "") {
-        clickCell("#one", "X");
-        this.board[0] = "X";
-      }
+      this.markCell("#one", this.whose_turn);
       console.log("A turn has occurred");
       console.log(this.board);
       this.endTurn();
@@ -37,6 +34,13 @@ TicTacToe.prototype.checkState = function() {
   }
 };
 
+TicTacToe.prototype.markCell = function(cell, player) {
+  if (this.board[0] === "") {
+    $(cell).append(player);
+    this.board[0] = "X";
+  }
+};
+
 TicTacToe.prototype.endTurn = function() {
   this.turn_count += 1;
   if (this.whose_turn == this.player_one) {
@@ -45,11 +49,4 @@ TicTacToe.prototype.endTurn = function() {
   else {
     this.whose_turn = this.player_one;
   }
-};
-
-
-var clickCell = function(cell, print) {
-  $(cell).click(function () {
-    $(this).append(print);
-  });
 };
