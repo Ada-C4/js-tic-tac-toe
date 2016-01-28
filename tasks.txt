@@ -1,5 +1,2 @@
-- Boxes are clickable
-- Clicking in a box places an X
-- Clicking in a box switches between X and O
-- Can reset the board
-- 
+
+-
