@@ -5,11 +5,16 @@ function TicTacToe() {
                 ];
   this.current_player = 1;
   this.current_player_marker = "😜";
+  this.winner = null;
 }
 
-TicTacToe.prototype.play_turn = function(row, column) {
+TicTacToe.prototype.playTurn = function(row, column) {
   this.board[row][column] = this.current_player;
-  if (this.current_player === 1) {
+  this.checkWinningBoard();
+  if (this.winner === this.current_player) {
+    return;
+    // deal with winning here
+  } else if (this.current_player === 1) {
     this.current_player = 2;
     this.current_player_marker = "🙈";
   }
@@ -18,6 +23,14 @@ TicTacToe.prototype.play_turn = function(row, column) {
     this.current_player_marker = "😜";
   }
 };
+
+
+TicTacToe.prototype.checkWinningBoard = function() {
+  if ((this.board[0][0] === this.current_player) && (this.board[0][1] === this.current_player) && (this.board[0][2] === this.current_player)) {
+    this.winner = this.current_player;
+  }
+};
+
 
 $(document).ready(function() {
   var game = new TicTacToe();
@@ -28,7 +41,7 @@ $(document).ready(function() {
       throw new Error ("This spot is already claimed!");
     }
     $(this).text(game.current_player_marker);
-    game.play_turn(0,0);
+    game.playTurn(0,0);
   });
 
   $(".row_1.column_2").click(function(){
@@ -36,7 +49,7 @@ $(document).ready(function() {
       throw new Error ("This spot is already claimed!");
     }
     $(this).text(game.current_player_marker);
-    game.play_turn(0,1);
+    game.playTurn(0,1);
   });
 
   $(".row_1.column_3").click(function(){
@@ -44,7 +57,7 @@ $(document).ready(function() {
       throw new Error ("This spot is already claimed!");
     }
     $(this).text(game.current_player_marker);
-    game.play_turn(0,2);
+    game.playTurn(0,2);
   });
 
   $(".row_2.column_1").click(function(){
@@ -52,7 +65,7 @@ $(document).ready(function() {
       throw new Error ("This spot is already claimed!");
     }
     $(this).text(game.current_player_marker);
-    game.play_turn(1,0);
+    game.playTurn(1,0);
   });
 
   $(".row_2.column_2").click(function(){
@@ -60,7 +73,7 @@ $(document).ready(function() {
       throw new Error ("This spot is already claimed!");
     }
     $(this).text(game.current_player_marker);
-    game.play_turn(1,1);
+    game.playTurn(1,1);
   });
 
   $(".row_2.column_3").click(function(){
@@ -68,7 +81,7 @@ $(document).ready(function() {
       throw new Error ("This spot is already claimed!");
     }
     $(this).text(game.current_player_marker);
-    game.play_turn(1,2);
+    game.playTurn(1,2);
   });
 
   $(".row_3.column_1").click(function(){
@@ -76,7 +89,7 @@ $(document).ready(function() {
       throw new Error ("This spot is already claimed!");
     }
     $(this).text(game.current_player_marker);
-    game.play_turn(2,0);
+    game.playTurn(2,0);
   });
 
   $(".row_3.column_2").click(function(){
@@ -84,7 +97,7 @@ $(document).ready(function() {
       throw new Error ("This spot is already claimed!");
     }
     $(this).text(game.current_player_marker);
-    game.play_turn(2,1);
+    game.playTurn(2,1);
   });
 
   $(".row_3.column_3").click(function(){
@@ -92,7 +105,7 @@ $(document).ready(function() {
       throw new Error ("This spot is already claimed!");
     }
     $(this).text(game.current_player_marker);
-    game.play_turn(2,2);
+    game.playTurn(2,2);
   });
 
 });
