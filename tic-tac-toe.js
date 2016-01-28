@@ -26,7 +26,24 @@ TicTacToe.prototype.playTurn = function(row, column) {
 
 
 TicTacToe.prototype.checkWinningBoard = function() {
-  if ((this.board[0][0] === this.current_player) && (this.board[0][1] === this.current_player) && (this.board[0][2] === this.current_player)) {
+  if ((this.board[0][0] === this.current_player) && (this.board[0][1] === this.current_player) && (this.board[0][2] === this.current_player) ||
+
+  (this.board[1][0] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[1][2] === this.current_player) ||
+
+  (this.board[2][0] === this.current_player) && (this.board[2][1] === this.current_player) && (this.board[2][2] === this.current_player) ||
+
+
+  (this.board[0][0] === this.current_player) && (this.board[1][0] === this.current_player) && (this.board[2][0] === this.current_player) ||
+
+  (this.board[0][1] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[2][1] === this.current_player) ||
+
+  (this.board[0][2] === this.current_player) && (this.board[1][2] === this.current_player) && (this.board[2][2] === this.current_player) ||
+
+  (this.board[0][0] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[2][2] === this.current_player) ||
+
+  (this.board[0][2] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[2][0] === this.current_player)
+
+  )  {
     this.winner = this.current_player;
   }
 };
