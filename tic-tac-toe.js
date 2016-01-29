@@ -58,59 +58,35 @@ TicTacToe.prototype = {
     });
   },
 
+  incrementScore: function(index, player) {
+    if (player == 1) {
+      self.player_1_score[index]++;
+    } else {
+      self.player_2_score[index]++;
+    }
+  },
+
   updateScore: function(space, player) {
     var self = this;
     if(space.substring(0,2) == "r1") {
-      if (player === 1) {
-        self.player_1_score[0]++;
-      } else {
-        self.player_2_score[0]++;
-      }
+      incrementScore(0, player);
     } else if (space.substring(0,2) == "r2") {
-      if (player === 1) {
-        self.player_1_score[1]++;
-      } else {
-        self.player_2_score[1]++;
-      }
+      incrementScore(1, player);
     } else if (space.substring(0,2) == "r3") {
-      if (player === 1) {
-        self.player_1_score[2]++;
-      } else {
-        self.player_2_score[2]++;
-      }
+      incrementScore(2, player);
     }
     if (space.substring(2,4) == "c1") {
-      if (player === 1) {
-        self.player_1_score[3]++;
-      } else {
-        self.player_2_score[3]++;
-      }
+      incrementScore(3, player);
     } else if (space.substring(2,4) == "c2") {
-      if (player === 1) {
-        self.player_1_score[4]++;
-      } else {
-        self.player_2_score[4]++;
-      }
+      incrementScore(4, player);
     } else if (space.substring(2,4) == "c3") {
-      if (player === 1) {
-        self.player_1_score[5]++;
-      } else {
-        self.player_2_score[5]++;
-      }
+      incrementScore(5, player);
     }
     if (["r1c1", "r2c2", "r3c3"].includes(space)) {
-      if (player === 1) {
-        self.player_1_score[6]++;
-      } else {
-        self.player_2_score[6]++;
-      }
+      incrementScore(6, player);
     }
     if (["r1c3", "r2c2", "r3c1"].includes(space)) {
-      if (player === 1) {
-        self.player_1_score[7]++;
-      } else {
-        self.player_2_score[7]++;
-      }
+      incrementScore(7, player);
     }
     if (self.moves >= 5) {
       self.checkForWinner();
