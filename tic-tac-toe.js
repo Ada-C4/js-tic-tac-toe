@@ -85,3 +85,11 @@ TicTacToe.prototype.checkWin = function() {
   }
   return this.state;
 };
+
+TicTacToe.prototype.clearBoard = function() {
+  game = new TicTacToe();
+  for (var i = 0; i < 9; i++) {
+    $("#" + i.toString()).html("");
+  }
+  return game;
+};
