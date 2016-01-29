@@ -1,5 +1,4 @@
 function TicTacToe() {
-  // this.board = [0,0,0,0,0,0,0,0,0];
   this.winConditions = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8],[0,4,8], [6,4,2]];
   this.clickSpace();
 }
@@ -54,9 +53,10 @@ TicTacToe.prototype = {
        if(this.innerText == ""){
          $(this).append(self.drawMark(player));
          // switch player
+         var origPlayer = player;
          player == 1? player = 2 : player = 1;
        };
-       self.checkForWin(player);
+       self.checkForWin(origPlayer);
        self.checkForTie();
      });
    }
