@@ -1,6 +1,6 @@
 function TicTacToe() {
   this.player1 = true;
-  this.board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+  this.board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
   this.turns = 0;
   this.board_spaces = ["r0c0", "r0c1", "r0c2", "r1c0", "r1c1", "r1c2", "r2c0", "r2c1", "r2c2"];
 }
@@ -22,40 +22,24 @@ TicTacToe.prototype.play = function() {
 
 TicTacToe.prototype.checkWinner = function() {
   // Check all horizontal wins
-  if (this.board[0][0] == "X" && this.board[0][1] == "X" && this.board[0][2] == "X") {
-    this.displayWinner("Player 1 wins!");
-  } else if (this.board[0][0] == "O" && this.board[0][1] == "O" && this.board[0][2] == "O") {
-    this.displayWinner("Player 2 wins!");
-  } else if (this.board[1][0] == "X" && this.board[1][1] == "X" && this.board[1][2] == "X") {
-      this.displayWinner("Player 1 wins!");
-  } else if (this.board[1][0] == "O" && this.board[1][1] == "O" && this.board[1][2] == "O") {
-      this.displayWinner("Player 2 wins!");
-  } else if (this.board[2][0] == "X" && this.board[2][1] == "X" && this.board[2][2] == "X") {
-      this.displayWinner("Player 1 wins!");
-  } else if (this.board[2][0] == "O" && this.board[2][1] == "O" && this.board[2][2] == "O") {
-      this.displayWinner("Player 2 wins!");
+  if (this.board[0][0] == this.board[0][1] && this.board[0][1] == this.board[0][2]) {
+    this.displayWinner(this.board[0][0] + " wins!");
+  } else if (this.board[1][0] == this.board[1][1] && this.board[1][1] == this.board[1][2]) {
+      this.displayWinner(this.board[1][0] + " wins!");
+  } else if (this.board[2][0] == this.board[2][1] && his.board[2][1] == this.board[2][2]) {
+      this.displayWinner(this.board[2][0] + " wins!");
     // Check all vertical wins
-  } else if (this.board[0][0] == "X" && this.board[1][0] == "X" && this.board[2][0] == "X") {
-    this.displayWinner("Player 1 wins!");
-  } else if (this.board[0][0] == "O" && this.board[1][0] == "O" && this.board[2][0] == "O") {
-    this.displayWinner("Player 2 wins!");
-  } else if (this.board[0][1] == "X" && this.board[1][1] == "X" && this.board[2][1] == "X") {
-      this.displayWinner("Player 1 wins!");
-  } else if (this.board[0][1] == "O" && this.board[1][1] == "O" && this.board[2][1] == "O") {
-      this.displayWinner("Player 2 wins!");
-  } else if (this.board[0][2] == "X" && this.board[1][2] == "X" && this.board[2][2] == "X") {
-      this.displayWinner("Player 1 wins!");
-  } else if (this.board[0][2] == "O" && this.board[1][2] == "O" && this.board[2][2] == "O") {
-      this.displayWinner("Player 2 wins!");
-    // check all diagonal wins
-  } else if (this.board[0][0] == "X" && this.board[1][1] == "X" && this.board[2][2] == "X") {
-      this.displayWinner("Player 1 wins!");
-  } else if (this.board[0][0] == "O" && this.board[1][1] == "O" && this.board[2][2] == "O") {
-      this.displayWinner("Player 2 wins!");
-  } else if (this.board[2][0] == "X" && this.board[1][1] == "X" && this.board[0][2] == "X") {
-      this.displayWinner("Player 1 wins!");
-  } else if (this.board[2][0] == "O" && this.board[1][1] == "O" && this.board[0][2] == "O") {
-      this.displayWinner("Player 2 wins!");
+  } else if (this.board[0][0] == this.board[1][0] && this.board[1][0] == this.board[2][0]) {
+      this.displayWinner(this.board[0][0] + " wins!");
+  } else if (this.board[0][1] == this.board[1][1] && this.board[1][1] == this.board[2][1]) {
+      this.displayWinner(this.board[0][1] + " wins!");
+  } else if (this.board[0][2] == this.board[1][2] && this.board[1][2] == this.board[2][2]) {
+      this.displayWinner(this.board[0][2] + " wins!");
+    // Check all diagonal wins
+  } else if (this.board[0][0] == this.board[1][1] == && this.board[1][1] == this.board[2][2]) {
+      this.displayWinner(this.board[0][0] + " wins!");
+  } else if (this.board[2][0] == this.board[1][1] && this.board[1][1] == this.board[0][2]) {
+      this.displayWinner(this.board[2][0] + " wins!");
     // check for cat's game
   } else if (this.turns == 9) {
     this.displayWinner("It's a tie!");
@@ -68,7 +52,7 @@ TicTacToe.prototype.displayWinner = function(winner) {
 };
 
 TicTacToe.prototype.resetBoard = function() {
-  this.board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+  this.board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
   this.board_spaces.forEach(function(space) {
     $("#" + space).text("");
   });
