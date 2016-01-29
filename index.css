@@ -15,7 +15,8 @@ table {
 }
 
 table td {
-  border: 1px solid #B1E6DC;
+  border: 1px solid white;
+  background-color: #B1E6DC;
   padding: 60px;
   width: 25px;
 }
