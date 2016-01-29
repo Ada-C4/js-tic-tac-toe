@@ -5,15 +5,17 @@ function TicTacToe() {
                 ];
   this.current_player = 1;
   this.current_player_marker = "😜";
-  this.winner = null;
+  this.winning_sequence = null;
 }
 
 TicTacToe.prototype.playTurn = function(row, column) {
   this.board[row][column] = this.current_player;
   this.checkWinningBoard();
-  if (this.winner) {
-    $("table").remove();
-    $("#board").append("Player " + this.winner + " wins!");
+  if (this.winning_sequence) {
+      $( "td" ).empty();
+      $(".row_" + this.winning_sequence[0][0] + ".column_" + this.winning_sequence[0][1]).text(this.current_player_marker);
+      $(".row_" + this.winning_sequence[1][0] + ".column_" + this.winning_sequence[1][1]).text(this.current_player_marker);
+      $(".row_" + this.winning_sequence[2][0] + ".column_" + this.winning_sequence[2][1]).text(this.current_player_marker);
   } else {
     this.switch_player();
   }
@@ -30,30 +32,25 @@ TicTacToe.prototype.switch_player = function() {
   }
 };
 
-
 TicTacToe.prototype.checkWinningBoard = function() {
-  if ((this.board[0][0] === this.current_player) && (this.board[0][1] === this.current_player) && (this.board[0][2] === this.current_player) ||
-
-  (this.board[1][0] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[1][2] === this.current_player) ||
-
-  (this.board[2][0] === this.current_player) && (this.board[2][1] === this.current_player) && (this.board[2][2] === this.current_player) ||
-
-
-  (this.board[0][0] === this.current_player) && (this.board[1][0] === this.current_player) && (this.board[2][0] === this.current_player) ||
-
-  (this.board[0][1] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[2][1] === this.current_player) ||
-
-  (this.board[0][2] === this.current_player) && (this.board[1][2] === this.current_player) && (this.board[2][2] === this.current_player) ||
-
-  (this.board[0][0] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[2][2] === this.current_player) ||
-
-  (this.board[0][2] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[2][0] === this.current_player)
-
-  )  {
-    this.winner = this.current_player;
+  if ((this.board[0][0] === this.current_player) && (this.board[0][1] === this.current_player) && (this.board[0][2] === this.current_player)) {
+    this.winning_sequence = [[0, 0], [0, 1], [0, 2]];
+  } else if ((this.board[1][0] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[1][2] === this.current_player)) {
+    this.winning_sequence = [[1,0], [1,1], [1,2]];
+  } else if ((this.board[2][0] === this.current_player) && (this.board[2][1] === this.current_player) && (this.board[2][2] === this.current_player)) {
+    this.winning_sequence = [[2,0], [2,1], [2,2]];
+  } else if ((this.board[0][0] === this.current_player) && (this.board[1][0] === this.current_player) && (this.board[2][0] === this.current_player)) {
+    this.winning_sequence = [[0,0], [1,0], [2,0]];
+  } else if ((this.board[0][1] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[2][1] === this.current_player)) {
+    this.winning_sequence = [[0,1], [1,1], [2,1]];
+  } else if ((this.board[0][2] === this.current_player) && (this.board[1][2] === this.current_player) && (this.board[2][2] === this.current_player)) {
+    this.winning_sequence = [[0,2], [1,2], [2,2]];
+  } else if ((this.board[0][0] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[2][2] === this.current_player)) {
+    this.winning_sequence = [[0,0], [1,1], [2,2]];
+  } else if ((this.board[0][2] === this.current_player) && (this.board[1][1] === this.current_player) && (this.board[2][0] === this.current_player)) {
+    this.winning_sequence = [[0,2], [1,1], [2,0]];
   }
 };
-
 
 $(document).ready(function() {
   var game = new TicTacToe();
