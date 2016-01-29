@@ -1,8 +1,11 @@
 //click handler
-//checks to see if square is empty first
+//if a game has just ended, there will be a winner. Will start a new game.
+//if a game is in progress, check to see that square is empty
 //if I do apply more styling to tds, would need to change this logic
 $("td").click(function () {
-  if (this.classList.length == 0) {
+  if (tictac.currentWinner != false) {
+    tictac.begin();
+  } else if (this.classList.length == 0) {
     tictac.takeTurn(this);
   }
 });
@@ -14,11 +17,16 @@ $("td").click(function () {
 function TicTacToe () {
 };
 
+
+
 //start game
+//if previous games have been played, this will erase all images
 TicTacToe.prototype.begin = function(){
   this.updateBoard([[0,0,0], [0,0,0],[0,0,0]]);
   this.updatePlayer("trooper");
   this.updateWinner(false);
+  $(".gameover").addClass("hide");
+  $("td").removeClass("vader trooper");
 };
 
 
@@ -102,6 +110,7 @@ TicTacToe.prototype.checkGame = function () {
 };
 
 //changes display when the game is over
+//new game isn't started until the next click on a box
 TicTacToe.prototype.endGame = function (winner) {
   console.log(winner + " wins!");
   $(".gameover").removeClass("hide");
