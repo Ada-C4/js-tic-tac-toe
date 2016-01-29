@@ -41,8 +41,10 @@ TicTacToe.prototype.updateBoard = function(square) {
 TicTacToe.prototype.play = function() {
   if (this.gameOver() === false) {
     this.switchPlayer();
+  } else if (this.gameOver() === true) {
+    $("body").append("<h2>It's a draw 😶</h2>");
   } else {
-    $("body").append("<h2>Game Over 😶</h2>");
+    $("body").append("<h2>Congrats, " + this.gameOver() +  " !</h2>");
   }
 };
 
@@ -59,52 +61,52 @@ TicTacToe.prototype.gameOver = function() {
 
   // player one wins vertically
   if (topLeft === one && midLeft === one && bottomLeft === one) {
-    return true;
+    return one;
   } else if (topMid === one && midMid === one && bottomMid === one) {
-    return true;
+    return one;
   } else if (topRight === one && midRight === one && bottomRight === one) {
-    return true;
+    return one;
   }
 
   // player two wins vertically
   if (topLeft === two && midLeft === two && bottomLeft === two) {
-    return true;
+    return two;
   } else if (topMid === two && midMid === two && bottomMid === two) {
-    return true;
+    return two;
   } else if (topRight === two && midRight === two && bottomRight === two) {
-    return true;
+    return two;
   }
 
   // player one wins horizontally
   if (topLeft === one && topMid === one && topRight === one) {
-    return true;
+    return one;
   } else if (midLeft === one && midMid === one && midRight === one) {
-    return true;
+    return one;
   } else if (bottomLeft === one && bottomMid === one && bottomRight === one) {
-    return true;
+    return one;
   }
 
   // player two wins horizontally
   if (topLeft === two && topMid === two && topRight === two) {
-    return true;
+    return two;
   } else if (midLeft === two && midMid === two && midRight === two) {
-    return true;
+    return two;
   } else if (bottomLeft === two && bottomMid === two && bottomRight === two) {
-    return true;
+    return two;
   }
 
   // player one wins diagonally
   if (topLeft === one && midMid === one && bottomRight === one) {
-    return true;
+    return one;
   } else if (topRight === one && midMid === one && bottomLeft === one) {
-    return true;
+    return one;
   }
 
   // player two wins diagonally
   if (topLeft === two && midMid === two && bottomRight === two) {
-    return true;
+    return two;
   } else if (topRight === two && midMid === two && bottomLeft === two) {
-    return true;
+    return two;
   }
 
   if (this.turns > 8) {
@@ -112,7 +114,7 @@ TicTacToe.prototype.gameOver = function() {
   } else {
     return false;
   }
-  
+
 };
 
 TicTacToe.prototype.switchPlayer = function () {
