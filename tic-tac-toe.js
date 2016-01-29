@@ -45,13 +45,13 @@ TicTacToe.prototype.checkGameOver = function() {
 	function displayModal(gameBoard){
 		var result, img;
     if (gameBoard.winner === 0) {
-      result = "The game was a tie.";
+      result = "<h2>Tie Game</h2>";
       img = gameBoard.images[3];
     } else if (gameBoard.winner === 1) {
-      result = "Player 1 Won!";
+      result = "<h2>Player 1 Won!</h2>";
       img = gameBoard.images[1];
     } else {
-      result = "Player 2 Won!";
+      result = "<h2>Player 2 Won!</h2>";
       img = gameBoard.images[2];
     }
     var $textAndPic = $('<div class="text-center"></div>');
@@ -63,7 +63,7 @@ TicTacToe.prototype.checkGameOver = function() {
         message: $textAndPic,
         buttons: [{
             label: 'Play Again',
-            cssClass: 'btn-primary',
+            cssClass: 'btn btn-success',
             action: function(dialogItself){
                 dialogItself.close();
                 gameBoard.start();
