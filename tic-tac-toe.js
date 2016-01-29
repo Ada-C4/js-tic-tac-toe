@@ -11,26 +11,16 @@ TicTacToe.prototype = {
   player_1_wins: 0,
   player_2_wins: 0,
   moves: 0,
+  player: 1,
 
   pickSpaces: function(){
     var self = this;
-    var player = 1;
     $("#player-1-wins").html(this.player_1_wins);
     $("#player-2-wins").html(this.player_2_wins);
     self.board_spaces.forEach(function(box) {
       $("." + box).click(function() {
         if ($("." + box).css('background-color') == 'rgb(0, 0, 255)') {
-          if(player === 1){
-            $("." + box).css('background-color', 'red');
-            self.moves++;
-            self.updateScore(box, player);
-            player = 2;
-          } else {
-            $("." + box).css('background-color', 'yellow');
-            self.moves++;
-            self.updateScore(box, player);
-            player = 1;
-          }
+          self.markSpaces(self.player, box);
         }
         if (self.moves == 9) {
           alert("It's a tie!");
@@ -38,6 +28,14 @@ TicTacToe.prototype = {
         }
       });
     });
+  },
+
+  markSpaces: function(player, box) {
+    var color = (player == 1 ? 'red' : 'yellow');
+    $("." + box).css('background-color', color);
+    this.moves++;
+    this.updateScore(box, player);
+    this.player = (player == 1 ? 2 : 1);
   },
 
   resetBoard: function(){
@@ -80,25 +78,26 @@ TicTacToe.prototype = {
   },
 
   updateScore: function(space, player) {
+    var track_space = space.toString();
     var self = this;
-    if(space.substring(0,2) == "r1") {
+    if(track_space.substring(0,2) == "r1") {
       self.incrementScore(0, player);
-    } else if (space.substring(0,2) == "r2") {
+    } else if (track_space.substring(0,2) == "r2") {
       self.incrementScore(1, player);
-    } else if (space.substring(0,2) == "r3") {
+    } else if (track_space.substring(0,2) == "r3") {
       self.incrementScore(2, player);
     }
-    if (space.substring(2,4) == "c1") {
+    if (track_space.substring(2,4) == "c1") {
       self.incrementScore(3, player);
-    } else if (space.substring(2,4) == "c2") {
+    } else if (track_space.substring(2,4) == "c2") {
       self.incrementScore(4, player);
-    } else if (space.substring(2,4) == "c3") {
+    } else if (track_space.substring(2,4) == "c3") {
       self.incrementScore(5, player);
     }
-    if (["r1c1", "r2c2", "r3c3"].includes(space)) {
+    if (["r1c1", "r2c2", "r3c3"].includes(track_space)) {
       self.incrementScore(6, player);
     }
-    if (["r1c3", "r2c2", "r3c1"].includes(space)) {
+    if (["r1c3", "r2c2", "r3c1"].includes(track_space)) {
       self.incrementScore(7, player);
     }
   },
