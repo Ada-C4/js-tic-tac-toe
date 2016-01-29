@@ -13,6 +13,13 @@ h1 {
   font-size: 48px;
 }
 
+h2 {
+  font-family: 'Chewy', cursive;
+  text-align: center;
+  color: #CAD8DA;
+  font-size: 36px;
+}
+
 div.row {
   text-align: center;
 }
