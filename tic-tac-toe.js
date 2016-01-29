@@ -1,6 +1,8 @@
 var TicTacToe = function() {
  // initialize things when a new game starts
- this.board = ["one", "two", "three", "four", "five", "six", "seven"];
+ this.board = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+ this.player1 = true;
+ this.player2 = false;
 };
 
 
@@ -12,11 +14,23 @@ var TicTacToe = function() {
     var self = this;
       self.board.forEach(function(cell) {
         $("#" + cell).click(function() {
-          $("#" + cell).html(///call function that returns X or 0 changes player and
+          $("#" + cell).html(///call function that returns X or 0 and then changes the player//
           );
 
         });
       });
+
+      changePlayer: function() {
+        
+      },
+
+      markScore: function() {
+        if (player1) {
+          return "X";
+        } else {
+          return "O";
+        }
+      }
 
 
 
