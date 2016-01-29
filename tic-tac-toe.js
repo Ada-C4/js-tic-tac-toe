@@ -49,10 +49,10 @@ $(document).on('ready', function() {
     if (this.board.slice(0,2) === ['x','x','x'] || this.board.slice(0,2) === ['o','o','o']) {
       console.log("You win!");
       return true;
-    } elseif (this.board.slice(3,5) === ['x','x','x'] || this.board.slice(3,5) === ['o','o','o'] {
+    } elseif (this.board.slice(3,5) === ['x','x','x'] || this.board.slice(3,5) === ['o','o','o']) {
       console.log("You win!");
       return true;
-    } elseif (this.board.slice(6,8) === ['x','x','x'] || this.board.slice(6,8) === ['o','o','o'] {
+    } elseif (this.board.slice(6,8) === ['x','x','x'] || this.board.slice(6,8) === ['o','o','o']) {
       console.log("You win!");
       return true;
     }
