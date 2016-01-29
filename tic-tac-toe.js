@@ -1,7 +1,11 @@
 //click handler
-  $("td").click(function () {
+//checks to see if square is empty first
+//if I do apply more styling to tds, would need to change this logic
+$("td").click(function () {
+  if (this.classList.length == 0) {
     tictac.takeTurn(this);
-  });
+  }
+});
 
 
 ////////////////////////////////
@@ -30,6 +34,7 @@ TicTacToe.prototype.takeTurn = function(clickedSquare){
     this.changePlayer();
   }
 };
+
 
 //defines who the current player is
 TicTacToe.prototype.updatePlayer = function(nextPlayer){
@@ -62,7 +67,7 @@ TicTacToe.prototype.endGame = function (winner) {
   console.log(winner + "wins!");
 };
 
-
+//checks to see if that spot is occupied
 //changes the array contents based on square that was clicked
 //returns array that can be used to update the board
 //board is marked with player name
@@ -70,7 +75,9 @@ TicTacToe.prototype.markArray = function(coords) {
   var board = this.currentBoard;
   var row = coords["row"];
   var col = coords["col"];
-  board[row][col] = this.currentPlayer;
+  if (board[row][col] == 0) {
+    board[row][col] = this.currentPlayer;
+  }
   return board;
 };
 
@@ -78,12 +85,12 @@ TicTacToe.prototype.markArray = function(coords) {
 TicTacToe.prototype.changePlayer = function() {
   if (this.currentPlayer == "trooper") {
     this.updatePlayer("vader");
-  } else if  (this.currentPlayer == "vader") {
+  } else if (this.currentPlayer == "vader") {
     this.updatePlayer("trooper");
   }
 };
 
 //actually marks the square in the browser
 TicTacToe.prototype.markSquare = function(square) {
-  square.setAttribute("class", this.currentPlayer);
+    square.setAttribute("class", this.currentPlayer);
 };
