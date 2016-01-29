@@ -12,10 +12,14 @@ body {
   background-color: #e5ccff; color: #3f0080;
   display: inline-block;
   border-radius: 10%;
+  position: relative;
 }
 
 p {
-  font-size: 3em;
+  font-size: 4em;
   position: absolute;
   text-align: center;
+  left: .7em;
+  top: .4em;
+  margin:0;
 }
