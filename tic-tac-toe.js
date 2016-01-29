@@ -14,28 +14,22 @@ TicTacToe.prototype.play = function() {
         $("#" + space).text(self.getSymbol());
         self.updateBoard(this);
         self.changePlayer();
-        self.checkWinner();
+        self.checkWinner(this);
       }
     });
   });
 };
 
-TicTacToe.prototype.checkWinner = function() {
-  // Check all horizontal wins
-  if (this.board[0][0] == this.board[0][1] && this.board[0][1] == this.board[0][2]) {
-    this.displayWinner(this.board[0][0] + " wins!");
-  } else if (this.board[1][0] == this.board[1][1] && this.board[1][1] == this.board[1][2]) {
-      this.displayWinner(this.board[1][0] + " wins!");
-  } else if (this.board[2][0] == this.board[2][1] && his.board[2][1] == this.board[2][2]) {
-      this.displayWinner(this.board[2][0] + " wins!");
-    // Check all vertical wins
-  } else if (this.board[0][0] == this.board[1][0] && this.board[1][0] == this.board[2][0]) {
-      this.displayWinner(this.board[0][0] + " wins!");
-  } else if (this.board[0][1] == this.board[1][1] && this.board[1][1] == this.board[2][1]) {
-      this.displayWinner(this.board[0][1] + " wins!");
-  } else if (this.board[0][2] == this.board[1][2] && this.board[1][2] == this.board[2][2]) {
-      this.displayWinner(this.board[0][2] + " wins!");
-    // Check all diagonal wins
+TicTacToe.prototype.checkWinner = function(cell) {
+  row = (cell.id[1]);
+  column = (cell.id[3]);
+  // Check horizontal win
+  if (this.board[row][0] == this.board[row][1] && this.board[row][1] == this.board[row][2]) {
+    this.displayWinner(this.board[row][0] + " wins!");
+  // Check vertical win
+  } else if (this.board[0][column] == this.board[1][column] && this.board[1][column] == this.board[2][column]) {
+    this.displayWinner(this.board[0][column] + " wins!");
+  // Check diagonal wins
   } else if (this.board[0][0] == this.board[1][1] && this.board[1][1] == this.board[2][2]) {
       this.displayWinner(this.board[0][0] + " wins!");
   } else if (this.board[2][0] == this.board[1][1] && this.board[1][1] == this.board[0][2]) {
@@ -46,10 +40,9 @@ TicTacToe.prototype.checkWinner = function() {
   }
 };
 
-TicTacToe.prototype.displayWinner = function(winner) {
+TicTacToe.prototype.displayWinner = function(winnerText) {
   swal({
-    title: winner,
-    text: "Great Job.",
+    title: winnerText,
     confirmButtonColor: "#47d1d1",
     imageUrl: "https://pbs.twimg.com/profile_images/479955426390196224/mB_v2TSf.png" });
   this.resetGame();
