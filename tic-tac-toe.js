@@ -43,6 +43,10 @@ TicTacToe.prototype.play = function() {
             $('#tic-tac-toe').append("<h3>Player 2 won!</h3>");
             self.clicksOff(self);
             $('#tic-tac-toe').append("<form><input type='button' onClick='history.go(0)' value='Play Again'></form>");
+          } else if (self.isGameTied()) {
+            $('#tic-tac-toe').append("<h3>Tie!</h3>");
+            self.clicksOff(self);
+            $('#tic-tac-toe').append("<form><input type='button' onClick='history.go(0)' value='Play Again'></form>");
           } else {
             self.turn = "player1";
           }
