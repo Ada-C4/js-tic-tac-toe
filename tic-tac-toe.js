@@ -19,10 +19,7 @@ TicTacToe.prototype.turn = function(cell_id) {
     this.incrementTurn();
     var winner = this.checkWin()[1];
     this.checkGameOver();
-    if (this.state == "game over" && winner === undefined) {
-      $(".draw").append("Draw!");
-    }
-    else if (this.state == "game over") {
+    if (this.state == "game over") {
       this.displayWinner(winner);
     }
   }
@@ -109,6 +106,9 @@ TicTacToe.prototype.displayWinner = function(winner) {
   }
   else if (winner == "O") {
     $(".player_two").append("Player Two wins!");
+  }
+  else if (winner === undefined) {
+    $(".draw").append("Draw!");
   }
 };
 
