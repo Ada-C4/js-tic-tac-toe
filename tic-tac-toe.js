@@ -16,7 +16,7 @@ function TicTacToe() {
 // reset board
 
 TicTacToe.prototype.drawMark =function(player) {
-  return player == 1 ? 'X' : 'O';
+  return player == 1 ? '🍍' : '🌺';
 };
 
 //check every square - if they are all filled, then do alert/game over TicTacToe
