@@ -6,10 +6,13 @@ html {
   background-size: cover;
 }
 
-h1 {
-  text-align: center;
+#board_title {
   padding-bottom: 5%;
   padding-top: 10%;
+}
+
+h1 {
+  text-align: center;
 }
 
 table {
