@@ -1,22 +1,57 @@
+var possiblePlayersOne = [
+  {
+    name: "Ann",
+    pictureURL: "images/ann.png"
+  },
+  {
+    name: "Lucille",
+    pictureURL: "images/lucille.png"
+  },
+  {
+    name: "G.O.B.",
+    pictureURL: "images/gob.jpg"
+  },
+  {
+    name: "Buster",
+    pictureURL: "images/buster.jpg"
+  },
+  {
+    name: "Tobias",
+    pictureURL: "images/tobias.jpg"
+  },
+];
+
+var possiblePlayersTwo = [
+  {
+    name: "George Michael",
+    pictureURL: "images/georgemichael.png"
+  },
+  {
+    name: "George Sr.",
+    pictureURL: "images/georgesr.jpg"
+  },
+  {
+    name: "Lindsay",
+    pictureURL: "images/lindsay.jpg"
+  },
+  {
+    name: "Michael",
+    pictureURL: "images/michael.jpg"
+  },
+  {
+    name: "Maeby",
+    pictureURL: "images/maeby.png"
+  },
+];
+
 function TicTacToe() {
   this.board = [[0,0,0], [0,0,0], [0,0,0]];
-  this.playerOne = {
-    name: "George Sr.",
-    pictureURL: "georgesr.jpg"
-  };
-  this.playerTwo = {
-    name: "Lucille",
-    pictureURL: "lucille.png"
-  };
+  this.playerOne = possiblePlayersOne[Math.floor(Math.random() * possiblePlayersOne.length)]; // random from group 1
+  this.playerTwo = possiblePlayersTwo[Math.floor(Math.random() * possiblePlayersTwo.length)]; // random from group 2
   this.currentPlayer = this.playerOne;
   this.turns = 0;
   this.over = false;
 }
-
-TicTacToe.prototype.reset = function() {
-  this.board = [[0,0,0], [0,0,0], [0,0,0]];
-  this.turns = 0;
-};
 
 TicTacToe.prototype.updateBoard = function(square) {
   switch ($(square).attr('id')) {
@@ -56,9 +91,12 @@ TicTacToe.prototype.play = function() {
   } else if (this.gameOver() === true) {
     this.over = true;
     $("body").append("<h2>It's a draw... I guess you could say you're tie-curious...</h2>");
+  } else if (this.gameOver().name === "Ann") {
+    this.over = true;
+    $("body").append("<h2>Her?</h2>");
   } else {
     this.over = true;
-    $("body").append("<h2>Congrats, " + this.gameOver().name +  "!</h2>");
+    $("body").append("<h2>fAmily LOVe " + this.gameOver().name +  "!</h2>");
   }
 };
 
@@ -129,7 +167,6 @@ TicTacToe.prototype.gameOver = function() {
   } else {
     return false;
   }
-
 };
 
 TicTacToe.prototype.switchPlayer = function () {
