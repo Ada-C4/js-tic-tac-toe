@@ -1,33 +1,16 @@
 function TicTacToe() {
-  this.board = [[0,0,0],
-                [0,0,0],
-                [0,0,0]];
+  this.board = [[0,0,0],[0,0,0],[0,0,0]];
+  this.player =
+  this.gameOver = false;
 }
 
-$("#r1c1").on("click", function() {
-    $("#r1c1").append("x");
-  });
-$("#r1c2").on("click", function() {
-    $("#r1c2").append("x");
-  });
-$("#r1c3").on("click", function() {
-    $("#r1c3").append("x");
-  });
-$("#r2c1").on("click", function() {
-    $("#r2c1").append("x");
-  });
-$("#r2c2").on("click", function() {
-    $("#r2c2").append("x");
-  });
-$("#r2c3").on("click", function() {
-    $("#r2c3").append("x");
-  });
-$("#r3c1").on("click", function() {
-    $("#r3c1").append("x");
-  });
-$("#r3c2").on("click", function() {
-    $("#r3c2").append("x");
-  });
-$("#r3c3").on("click", function() {
-    $("#r3c3").append("x");
+TicTacToe.prototype.checkGameOver =function() {
+  var winConditions = [[0,1,2], [3,4,5], [6,7,8],[0,3,6], [1,4,7], [2,5,8],[0,4,8], [6,4,2]];
+};
+
+
+// DRY this code up
+// This adds stuff into each
+$(".square").on("click", function() {
+    $(this).append("x");
   });
