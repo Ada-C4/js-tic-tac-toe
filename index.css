@@ -9,6 +9,7 @@ html {
 
 body {
   background-color: #F98F1B;
+  text-align: center;
 }
 
 h1 {
@@ -17,6 +18,16 @@ h1 {
   text-align: center;
   color: black;
   font-size: 48px;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.arrested-development {
+  font-family: 'antiqueOlive', cursive;
 }
 
 h2 {

@@ -50,7 +50,7 @@ TicTacToe.prototype.play = function() {
     this.switchPlayer();
   } else if (this.gameOver() === true) {
     this.over = true;
-    $("body").append("<h2>It's a draw...</h2>");
+    $("body").append("<h2>It's a draw... I guess you could say you're tie-curious...</h2>");
   } else {
     this.over = true;
     $("body").append("<h2>Congrats, " + this.gameOver().name +  "!</h2>");
