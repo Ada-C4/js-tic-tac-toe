@@ -8,8 +8,8 @@ $(document).on('ready', function() {
       $(this).css('background-color', 'green');
     }
     // this gives me the class that the person has clicked on and is storing the value so I can use it elsewhere
-    var position = $(this).attr("class");
-    game.play(position);
+    var position = $(this).attr("class").split(" ")[1];
+    game.play(position, game.marker);
   });
 });
 
@@ -47,10 +47,10 @@ $(document).on('ready', function() {
   };
 
   TicTacToe.prototype.marker = function(player){
-    if (this.player = "player1") {
-      var 'x' = "X";
+    if (this.player === "player1") {
+      return 'x';
     } else {
-      var 'y' = "Y";
+      return 'o';
     }
   };
 
