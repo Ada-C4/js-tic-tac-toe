@@ -1,5 +1,6 @@
 function TicTacToe() {
-  // this.board = [[0,0,0],[0,0,0],[0,0,0]];
+  // this.board = [0,0,0,0,0,0,0,0,0];
+  this.winConditions = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8],[0,4,8], [6,4,2]];
   this.clickSpace();
 }
 
@@ -14,11 +15,6 @@ TicTacToe.prototype = {
       this.innerText = "";
     });
   },
-
-  // checkForWin: function(){
-  //   if($("#r1c1".innerText))
-  //   // var winConditions = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8],[0,4,8], [6,4,2]];
-  // },
 
   //check every square - if they are all filled, then do alert/game over TicTacToe
   checkForTie: function() {
@@ -35,6 +31,21 @@ TicTacToe.prototype = {
    }
   },
 
+  checkForWin: function(player){
+    var self = this;
+    var winConditions = this.winConditions;
+    var board = $(".square"); // == [r1c1,r1c2,r1c3,....]
+    for (var i = 0; i < winConditions.length; i++){
+      if((board[winConditions[i][0]].innerText == board[winConditions[i][1]].innerText)
+      && (board[winConditions[i][0]].innerText == board[winConditions[i][2]].innerText)
+      && (board[winConditions[i][0]].innerText != "")){
+        alert("Player "+ player + " wins!");
+        self.resetBoard();
+      }
+    }
+  },
+
+
   // playing the game, what happens when you click each space
   clickSpace: function() {
    var self = this;
@@ -45,6 +56,7 @@ TicTacToe.prototype = {
          // switch player
          player == 1? player = 2 : player = 1;
        };
+       self.checkForWin(player);
        self.checkForTie();
      });
    }
