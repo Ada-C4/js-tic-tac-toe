@@ -1,21 +1,63 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tic Tac Toe!</title>
+    <title>Tic Tac Fro</title>
     <meta charset="utf-8">
-    <link href="index.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="css/index.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/bootstrap3-dialog/dist/css/bootstrap-dialog.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
   </head>
-
   <body>
-    <h1>Tic Tac Toe</h1>
-    <div id="tic-tac-toe"></div>
+    <div class="container">
+      <div id="tic-tac-toe" class="row">
+        <div class="col-md-5 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+          <div class="row text-center"><h1>Tic Tac Fro</h1></div>
+          <div class="row">
+            <div id="row0col0" class="col-xs-4 square" data-row="0" data-col="0"><img class="img-responsive"></div>
+            <div id="row0col1" class="col-xs-4 square" data-row="0" data-col="1"><img class="img-responsive"></div>
+            <div id="row0col2" class="col-xs-4 square" data-row="0" data-col="2"><img class="img-responsive"></div> 
+          </div> 
+          <div class="row">
+            <div id="row1col0" class="col-xs-4 square" data-row="1" data-col="0"><img class="img-responsive"></div>
+            <div id="row1col1" class="col-xs-4 square" data-row="1" data-col="1"><img class="img-responsive"></div>
+            <div id="row1col2" class="col-xs-4 square" data-row="1" data-col="2"><img class="img-responsive"></div>  
+          </div>
+          <div class="row">
+            <div id="row2col0" class="col-xs-4 square" data-row="2" data-col="0"><img class="img-responsive"></div>
+            <div id="row2col1" class="col-xs-4 square" data-row="2" data-col="1"><img class="img-responsive"></div>
+            <div id="row2col2" class="col-xs-4 square" data-row="2" data-col="2"><img class="img-responsive"></div>
+          </div>  
+          <div class="row">
+            <div class="col-xs-4 text-center">
+              <h4>Player 1: <span id="p1wins"></span></h4> 
+            </div>
+            <div class="col-xs-4 text-center">
+              <h4>Player 2: <span id="p2wins"></span></h4>
+            </div>
+            <div class="col-xs-4">
+              <button class="btn restart btn-success">Start a New Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/bootstrap3-dialog/dist/js/bootstrap-dialog.min.js"></script>
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
-      console.log('create and begin the game here!');
-    })
+      var gameBoard = new TicTacToe();
+      gameBoard.start();
+      $('.square').click(function() {
+        $(this).fadeTo(150, 0.1, function(){gameBoard.makeMove($(this));}).fadeTo(150, 1);
+      });
+      $('.restart').click(function() {
+        gameBoard.start();
+      });
+    });
   </script>
 </html>
 

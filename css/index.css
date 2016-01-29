@@ -1,0 +1,17 @@
+h1,
+.bootstrap-dialog-title {
+	font-family: 'Monoton', cursive !important;
+}
+
+#tic-tac-toe .row {
+	padding-bottom: 10px;
+}
+
+.square {
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}
+
+.bootstrap-dialog.type-primary .modal-header {
+    background-color: #5cb85c !important;
+}
