@@ -43,28 +43,28 @@ TicTacToe.prototype.markBoard = function() {
 
 TicTacToe.prototype.scoreBoard = function() {
   if (this.board[1]===this.board[2]&&this.board[0]===this.board[1]){
-    alert("Player " + this.board[0] + " + has won!");
+    alert("Player " + this.board[0] + " + has won! Press 'OK' to play again!");
     location.reload();
   }else if(this.board[3]===this.board[4]&&this.board[5]===this.board[3]){
-    alert("Player " + this.board[3] + " + has won!");
+    alert("Player " + this.board[3] + " + has won! Press 'OK' to play again!");
     location.reload();
   }else if(this.board[6]===this.board[7]&&this.board[8]===this.board[6]){
-    alert("Player " + this.board[6] + " + has won!");
+    alert("Player " + this.board[6] + " + has won! Press 'OK' to play again!");
     location.reload();
   }else if(this.board[0]===this.board[3]&&this.board[0]===this.board[6]){
-    alert("Player " + this.board[6] + " + has won!");
+    alert("Player " + this.board[6] + " + has won! Press 'OK' to play again!");
     location.reload();
   }else if(this.board[1]===this.board[4]&&this.board[7]===this.board[1]){
-    alert("Player " + this.board[1] + " + has won!");
+    alert("Player " + this.board[1] + " + has won! Press 'OK' to play again!");
     location.reload();
   }else if(this.board[2]===this.board[5]&&this.board[8]===this.board[2]){
-    alert("Player " + this.board[2] + " + has won!");
+    alert("Player " + this.board[2] + " + has won! Press 'OK' to play again!");
     location.reload();
   }else if(this.board[2]===this.board[4]&&this.board[6]===this.board[2]){
-    alert("Player " + this.board[2] + " + has won!");
+    alert("Player " + this.board[2] + " + has won! Press 'OK' to play again!");
     location.reload();
   }else if(this.board[0]===this.board[4]&&this.board[8]===this.board[0]){
-    alert("Player " + this.board[0] + " + has won!");
+    alert("Player " + this.board[0] + " + has won! Press 'OK' to play again!");
     location.reload();
   }
 };
