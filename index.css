@@ -2,8 +2,21 @@ html {
 
 }
 
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-size: 3em;
+}
+
 body {
-  background-color: #7c8977
+  background-color: #7c8977;
+  margin: 0;
+}
+
+#tic-tac-toe {
+  width: 960px;
+  margin: auto;
+  padding-left: 450px;
 }
 
 #top-row {
@@ -93,9 +106,19 @@ body {
 }
 
 .x {
-  color: green;
+  color: white;
+  text-align: center;
+  margin-top: 60px;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 5em;
+  margin: 0;
 }
 
 .o {
-  color: purple;
+  color: black;
+  text-align: center;
+  margin-top: 60px;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 5em;
+  margin: 0;
 }
