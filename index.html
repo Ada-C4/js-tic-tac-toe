@@ -54,6 +54,7 @@
       $("button").click(function(){
         $(".square").html('');
         var game = new TicTacToe();
+        $("#alert").text(game.currentPlayer + "'s turn");
         $(".square").one("click", function(){
           game.play($(this));
         });
