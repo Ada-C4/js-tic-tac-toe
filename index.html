@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tic Tac Toe!</title>
+
+    <h1 >Tic Tac Toe! </h1>
     <meta charset="utf-8">
     <link href="index.css" media="screen" rel="stylesheet" type="text/css">
-  </head>
+  <div id="board">
+      <table>
+        <tr id="row1">
+          <td class="square", id="zz"></td>
+          <td class="square v", id="zo"></td>
+          <td class="square", id="zt"> </td>
+        </tr>
+        <tr id="row2">
+          <td class="square h" id="oz"></td>
+          <td class="square v h", id="oo"></td>
+          <td class="square h", id="ot"></td>
+        </tr>
+        <tr id="row3">
+          <td class="square", id="tz"></td>
+          <td class="square v", id="to"></td>
+          <td class="square", id="tt"></td>
+        </tr>
+      </table>
+  </div>
 
-  <body>
-    <h1>Tic Tac Toe</h1>
-    <div id="tic-tac-toe"></div>
-  </body>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="tic-tac-toe.js"></script>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     $(document).on('ready', function() {
       console.log('create and begin the game here!');
     })
-  </script>
+  </script> -->
 </html>
-
