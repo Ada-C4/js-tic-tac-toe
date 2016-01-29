@@ -3,16 +3,25 @@
     var rowInd = (this.parentNode).rowIndex;
     var colInd = this.cellIndex;
     var coordinates = {row: rowInd, col: colInd}; //returns coordinates in a hash
-    tictac.markSquare(coordinates);
+    //want to change the appearance of the square and return the coordinates for updating the board
+    tictac.markSquare(this);
+    tictac.markArray(coordinates);
+    tictac.changePlayer;
   });
 
 
 //game logic
+//
 function TicTacToe () {
+};
+
+TicTacToe.prototype.player = function(nextPlayer){
+  this.currentPlayer = nextPlayer;
 };
 
 TicTacToe.prototype.begin = function(){
   this.board = [[0,0,0], [0,0,0],[0,0,0]];
+  this.player("trooper");
   console.log(this.board);
   //set up everything for a new game, if needed
 };
@@ -24,6 +33,21 @@ TicTacToe.prototype.gamePlay = function(){
 };
 
 //changes the array contents based on square that was clicked
-TicTacToe.prototype.markSquare = function(coordinates) {
-    console.log(coordinates);
-    };
+TicTacToe.prototype.markArray = function(coordinates) {
+  console.log(coordinates);
+
+  };
+
+//alternates player
+TicTacToe.prototype.changePlayer = function() {
+  if (this.currentPlayer == "trooper") {
+    this.player("vader");
+  } else if  (this.currentPlayer == "vader") {
+    this.player("trooper");
+  }
+}
+
+//actually marks the square in the browser
+TicTacToe.prototype.markSquare = function(square) {
+  square.setAttribute("class", this.currentPlayer);
+  };
