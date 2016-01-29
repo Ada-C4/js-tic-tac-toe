@@ -1,51 +1,74 @@
 //click handler
   $("td").click(function () {
-    var rowInd = (this.parentNode).rowIndex;
-    var colInd = this.cellIndex;
-    var coordinates = {row: rowInd, col: colInd}; //returns coordinates in a hash
-    //want to change the appearance of the square and return the coordinates for updating the board
-    tictac.markArray(coordinates);
-    tictac.markSquare(this);
-    tictac.changePlayer();
+    tictac.takeTurn(this);
   });
 
+
+////////////////////////////////
 
 //game logic
 function TicTacToe () {
 };
 
-TicTacToe.prototype.player = function(nextPlayer){
+
+//logic for a single turn
+TicTacToe.prototype.takeTurn = function(clickedSquare){
+  var coords = this.getCoords(clickedSquare);
+  var newArray = this.markArray(coords);
+  this.updateBoard(newArray);
+  this.markSquare(clickedSquare);
+  this.changePlayer();
+};
+
+//defines who the current player is
+TicTacToe.prototype.updatePlayer = function(nextPlayer){
   this.currentPlayer = nextPlayer;
 };
 
+
+//defines the board
+TicTacToe.prototype.updateBoard = function(newArray) {
+  this.currentBoard = newArray;
+}
+
+//gets the coordinates from which square was clicked
+TicTacToe.prototype.getCoords = function(square) {
+  var rowInd = (square.parentNode).rowIndex;
+  var colInd = square.cellIndex;
+  var coordinates = {row: rowInd, col: colInd};
+  return coordinates
+};
+
+//checks to see if game is finished
+TicTacToe.prototype.checkGame = function () {
+
+};
+
 TicTacToe.prototype.begin = function(){
-  this.board = [[0,0,0], [0,0,0],[0,0,0]];
-  this.player("trooper");
+  this.updateBoard([[0,0,0], [0,0,0],[0,0,0]]);
+  this.updatePlayer("trooper");
   //set up everything for a new game, if needed
 };
 
-TicTacToe.prototype.gamePlay = function(){
-  console.log("gameplay has begun");
-  //start turn taking, check to see what's up with board, etc
-  //check to see if game is over, etc
-};
-
 //changes the array contents based on square that was clicked
+//updates the board
 TicTacToe.prototype.markArray = function(coordinates) {
   console.log(coordinates);
   //put entry into array
+  //return array to update board
+  //
   };
 
 //alternates player
 TicTacToe.prototype.changePlayer = function() {
   if (this.currentPlayer == "trooper") {
-    this.player("vader");
+    this.updatePlayer("vader");
   } else if  (this.currentPlayer == "vader") {
-    this.player("trooper");
+    this.updatePlayer("trooper");
   }
-}
+};
 
 //actually marks the square in the browser
 TicTacToe.prototype.markSquare = function(square) {
   square.setAttribute("class", this.currentPlayer);
-  };
+};
