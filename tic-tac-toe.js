@@ -10,6 +10,13 @@
 function TicTacToe () {
 };
 
+//start game
+TicTacToe.prototype.begin = function(){
+  this.updateBoard([[0,0,0], [0,0,0],[0,0,0]]);
+  this.updatePlayer("trooper");
+  //set up everything for a new game, if needed
+};
+
 
 //logic for a single turn
 TicTacToe.prototype.takeTurn = function(clickedSquare){
@@ -42,12 +49,6 @@ TicTacToe.prototype.getCoords = function(square) {
 //checks to see if game is finished
 TicTacToe.prototype.checkGame = function () {
 
-};
-
-TicTacToe.prototype.begin = function(){
-  this.updateBoard([[0,0,0], [0,0,0],[0,0,0]]);
-  this.updatePlayer("trooper");
-  //set up everything for a new game, if needed
 };
 
 //changes the array contents based on square that was clicked
