@@ -25,16 +25,16 @@ TicTacToe.prototype.checkWinner = function(cell) {
   column = (cell.id[3]);
   // Check horizontal win
   if (this.board[row][0] == this.board[row][1] && this.board[row][1] == this.board[row][2]) {
-    this.displayWinner(this.board[row][0] + " wins!");
+    this.displayWinner(this.board[row][column] + " wins!");
   // Check vertical win
   } else if (this.board[0][column] == this.board[1][column] && this.board[1][column] == this.board[2][column]) {
-    this.displayWinner(this.board[0][column] + " wins!");
+    this.displayWinner(this.board[row][column] + " wins!");
   // Check diagonal wins
   } else if (this.board[0][0] == this.board[1][1] && this.board[1][1] == this.board[2][2]) {
-      this.displayWinner(this.board[0][0] + " wins!");
+      this.displayWinner(this.board[row][column] + " wins!");
   } else if (this.board[2][0] == this.board[1][1] && this.board[1][1] == this.board[0][2]) {
-      this.displayWinner(this.board[2][0] + " wins!");
-    // check for cat's game
+      this.displayWinner(this.board[row][column] + " wins!");
+  // Check for cat's game
   } else if (this.turns == 9) {
     this.displayWinner("It's a tie!");
   }
