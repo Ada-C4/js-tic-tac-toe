@@ -7,6 +7,7 @@ function TicTacToe() {
   this.player_2 = new Player(2, "Abu", "🐵");
   this.current_player = this.player_1;
   this.winning_sequence = null;
+  this.turnCount = 0;
 }
 
 function Player(number, name, marker) {
@@ -18,12 +19,17 @@ function Player(number, name, marker) {
 TicTacToe.prototype.playTurn = function(row, column) {
   this.board[row][column] = this.current_player.number;
   this.checkWinningBoard();
+  this.turnCount++;
   if (this.winning_sequence) {
-      $( "td" ).empty();
+      $("td").empty();
+      $(".board_footer").empty();
       $(".row_" + this.winning_sequence[0][0] + ".column_" + this.winning_sequence[0][1]).text(this.current_player.marker);
       $(".row_" + this.winning_sequence[1][0] + ".column_" + this.winning_sequence[1][1]).text(this.current_player.marker);
       $(".row_" + this.winning_sequence[2][0] + ".column_" + this.winning_sequence[2][1]).text(this.current_player.marker);
       $( "table").after("<h1>" + this.current_player.name + " Wins!" + "</h1>");
+  } else if (this.turnCount === 9) {
+    $(".board_footer").empty();
+    $( "table").after("<h1>Game Over</h1>");
   } else {
     this.switch_player();
   }
