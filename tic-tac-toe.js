@@ -75,6 +75,24 @@ TicTacToe.prototype.gameOver = function() {
     return true;
   }
 
+  // player one wins horizontally
+  if (topLeft === one && topMid === one && topRight === one) {
+    return true;
+  } else if (midLeft === one && midMid === one && midRight === one) {
+    return true;
+  } else if (bottomLeft === one && bottomMid === one && bottomRight === one) {
+    return true;
+  }
+
+  // player two wins horizontally
+  if (topLeft === two && topMid === two && topRight === two) {
+    return true;
+  } else if (midLeft === two && midMid === two && midRight === two) {
+    return true;
+  } else if (bottomLeft === two && bottomMid === two && bottomRight === two) {
+    return true;
+  }
+
   return false;
 
   // if (this.turns > 8) {
