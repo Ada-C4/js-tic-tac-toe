@@ -25,7 +25,7 @@ TicTacToe.prototype.CheckRow = function(col, row, sign) {
 
 TicTacToe.prototype.CheckCol = function(col, row, sign) {
   if (col === 0) {
-    if (checkSpot(1, row, sign, this.board) && (checkSpot(2,row, sign, this.board)))
+    if (checkSpot(1,row, sign, this.board) && (checkSpot(2,row, sign, this.board)))
       return true;
   } else if ( col === 1) {
     if (checkSpot(0, row, sign, this.board) && (checkSpot(2,row, sign, this.board)))
@@ -37,9 +37,9 @@ TicTacToe.prototype.CheckCol = function(col, row, sign) {
 };
 
 TicTacToe.prototype.checkOblique = function(col, row, sign) {
-  if ((col === 0) && (row == 1) || (col == 1 && row === 0) || (col == 1 && col == 2) || (col == 2 && row == 1) ) {
+  if ((col === 0) && (row == 1) || (col == 1 && row === 0) || (col == 1 && row == 2) || (col == 2 && row == 1) ) {
     return false;
-  } else if ((checkSpot(0,0,sign, this.board) && checkSpot(1,1,sign, this.board) && checkSpot(2,2, sign, this.board)) || (checkSpot(0,1,sign, this.board) && checkSpot(1,1,sign, this.board) && checkSpot(2,0,sign, this.board))){
+  } else if ((checkSpot(0,0,sign, this.board) && checkSpot(1,1,sign, this.board) && checkSpot(2,2, sign, this.board)) || (checkSpot(0,2,sign, this.board) && checkSpot(1,1,sign, this.board) && checkSpot(2,0,sign, this.board))){
     return true;
   }
 };
@@ -50,8 +50,6 @@ TicTacToe.prototype.checkAvai = function(col, row) {
   } else { return false;}
 };
 
-
-
   $(document).ready(function() {
     var game = new TicTacToe();
 
@@ -61,7 +59,7 @@ TicTacToe.prototype.checkAvai = function(col, row) {
       } else if (game.count % 2 === 0) {
         $(this).text("O");
         game.board[0][0]="O";
-        if (game.CheckRow(0,0,"O") ||game.CheckCol(0,0,"O") || game.checkOblique(0,0,"O") ) {
+        if (game.CheckRow(0,0,"O") || game.CheckCol(0,0,"O") || game.checkOblique(0,0,"O") ) {
           alert('Y wins'); } else {
           game.count ++;}
       } else {
@@ -211,13 +209,13 @@ TicTacToe.prototype.checkAvai = function(col, row) {
       } else {
         $(this).text("X");
         game.board[2][2] = "X";
-        if (game.CheckRow(2,2,"X") ||game.CheckCol(2,2,"X") || checkOblique(2,2,"X") ) {
+        if (game.CheckRow(2,2,"X") ||game.CheckCol(2,2,"X") || game.checkOblique(2,2,"X") ) {
           alert('X wins'); } else {
           game.count ++;}
         }
 
-        if (game.count == 9)
-          {alert("it's a tie");}
-
   });
+
+  if (game.count == 9)
+    {alert("it's a tie");}
 });

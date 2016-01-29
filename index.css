@@ -17,3 +17,7 @@
 h1 {
   margin-left: 60px;
 }
+
+td {
+  text-align: center;
+}
