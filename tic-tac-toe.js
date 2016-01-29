@@ -1,7 +1,13 @@
 function TicTacToe() {
   this.board = [[0,0,0], [0,0,0], [0,0,0]];
-  this.playerOne = '🌵';
-  this.playerTwo = '🌻';
+  this.playerOne = {
+    name: "G.O.B.",
+    pictureURL: "😈"
+  };
+  this.playerTwo = {
+    name: "Tobias",
+    pictureURL: "😡"
+  };
   this.currentPlayer = this.playerOne;
   this.turns = 0;
   this.over = false;
@@ -44,10 +50,10 @@ TicTacToe.prototype.play = function() {
     this.switchPlayer();
   } else if (this.gameOver() === true) {
     this.over = true;
-    $("body").append("<h2>It's a draw 😶</h2>");
+    $("body").append("<h2>It's a draw...</h2>");
   } else {
     this.over = true;
-    $("body").append("<h2>Congrats, " + this.gameOver() +  " !</h2>");
+    $("body").append("<h2>Congrats, " + this.gameOver().name +  "!</h2>");
   }
 };
 

@@ -56,7 +56,7 @@
       var game = new TicTacToe();
       $(".square").one("click", function () {
         if (game.over === false) {
-          $(this).append('<p>' + game.currentPlayer + '</p>');
+          $(this).append('<p>' + game.currentPlayer.pictureURL + '</p>');
           game.updateBoard(this);
           game.turns += 1;
           game.play();
