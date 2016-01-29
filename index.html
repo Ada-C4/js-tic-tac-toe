@@ -4,7 +4,8 @@
     <title>Tic Tac Fro</title>
     <meta charset="utf-8">
     <link href="css/index.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/bootstrap3-dialog/dist/css/bootstrap-dialog.min.css">
   </head>
   <body>
     <div class="container">
@@ -26,13 +27,14 @@
             <div id="row2col1" class="col-xs-4 square" data-row="2" data-col="1"><img class="img-responsive"></div>
             <div id="row2col2" class="col-xs-4 square" data-row="2" data-col="2"><img class="img-responsive"></div>
           </div>  
-          <div class="row text-center"><button class="btn">Start a New Game</button></div>
+          <div class="row text-center"><button class="btn restart">Start a New Game</button></div>
         </div>
       </div>
     </div>
   </body>
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/bootstrap3-dialog/dist/js/bootstrap-dialog.min.js"></script>
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
@@ -41,7 +43,7 @@
       $('.square').click(function() {
         gameBoard.makeMove($(this));
       });
-      $('button').click(function() {
+      $('.restart').click(function() {
         gameBoard.restart();
       });
   });

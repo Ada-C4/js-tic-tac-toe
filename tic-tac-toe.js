@@ -17,7 +17,6 @@ TicTacToe.prototype.restart = function() {
 	this.currentPlayer = 1;
 	this.gameOver = false;
 	this.winner = 0;
-	this.printGameboard();
 };
 
 TicTacToe.prototype.printGameboard = function() {
