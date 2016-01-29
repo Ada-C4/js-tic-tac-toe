@@ -5,12 +5,14 @@ function TicTacToe() {
 		2 : 'images/player2.png',
 		3 : 'images/disco_ball.png'
 	};
-	
+	this.p1wins = 0;
+	this.p2wins = 0;
 }
 
 TicTacToe.prototype.start = function() {
 	this.restart();
 	this.printGameboard();
+	this.updateWins();
 };
 
 TicTacToe.prototype.restart = function() {
@@ -28,6 +30,11 @@ TicTacToe.prototype.printGameboard = function() {
 			$square.children('img').attr('src', this.images[squareNumber]);
 		}
 	}
+};
+
+TicTacToe.prototype.updateWins = function() {
+	$('#p1wins').html(this.p1wins);
+	$('#p2wins').html(this.p2wins);
 };
 
 TicTacToe.prototype.makeMove = function(el) {
@@ -95,6 +102,12 @@ TicTacToe.prototype.checkGameOver = function() {
 		(this.board[1][1] && this.board[2][0] == this.board [1][1] && this.board[1][1] == this.board[0][2])){
 		this.gameOver = true;
 		this.winner = this.board[1][1];
+	}
+	// add to total wins for player
+	if (this.winner === 1) {
+		this.p1wins++;
+	} else if (this.winner ===2) {
+		this.p2wins++;
 	}
 	// show result modal
 	if (this.gameOver === true) {
