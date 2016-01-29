@@ -47,11 +47,11 @@ TicTacToe.prototype.checkWinner = function() {
 };
 
 TicTacToe.prototype.displayWinner = function(winner) {
-  alert(winner);
-  this.resetBoard();
+  swal(winner);
+  this.resetGame();
 };
 
-TicTacToe.prototype.resetBoard = function() {
+TicTacToe.prototype.resetGame = function() {
   this.board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
   this.board_spaces.forEach(function(space) {
     $("#" + space).text("");
