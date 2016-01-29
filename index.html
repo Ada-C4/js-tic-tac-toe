@@ -27,7 +27,9 @@
             <div id="row2col1" class="col-xs-4 square" data-row="2" data-col="1"><img class="img-responsive"></div>
             <div id="row2col2" class="col-xs-4 square" data-row="2" data-col="2"><img class="img-responsive"></div>
           </div>  
-          <div class="row text-center"><button class="btn restart">Start a New Game</button></div>
+          <div class="row text-center">
+            <button class="btn restart">Start a New Game</button>
+          </div>
         </div>
       </div>
     </div>
@@ -44,9 +46,9 @@
         gameBoard.makeMove($(this));
       });
       $('.restart').click(function() {
-        gameBoard.restart();
+        gameBoard.start();
       });
-  });
+    });
   </script>
 </html>
 

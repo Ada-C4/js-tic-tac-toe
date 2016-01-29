@@ -2,7 +2,8 @@ function TicTacToe() {
 	this.images = {
 		0 : 'images/empty.jpg',
 		1 : 'images/player1.png',
-		2 : 'images/player2.png'
+		2 : 'images/player2.png',
+		3 : 'images/disco_ball.png'
 	};
 	
 }
@@ -41,7 +42,41 @@ TicTacToe.prototype.makeMove = function(el) {
 };
 
 TicTacToe.prototype.checkGameOver = function() {
+	function displayModal(gameBoard){
+		var result, img;
+    if (gameBoard.winner === 0) {
+      result = "The game was a tie.";
+      img = gameBoard.images[3];
+    } else if (gameBoard.winner === 1) {
+      result = "Player 1 Won!";
+      img = gameBoard.images[1];
+    } else {
+      result = "Player 2 Won!";
+      img = gameBoard.images[2];
+    }
+    var $textAndPic = $('<div class="text-center"></div>');
+    $textAndPic.append(result + '</br>');
+    $textAndPic.append('<img src ="' + img + '" >');
+    BootstrapDialog.show({
+        size: BootstrapDialog.SIZE_LARGE,
+        title: 'Game Over',
+        message: $textAndPic,
+        buttons: [{
+            label: 'Play Again',
+            cssClass: 'btn-primary',
+            action: function(dialogItself){
+                dialogItself.close();
+                gameBoard.start();
+              }
+          }
+        ],
+    });
+	}
 	for (var i = 0; i < this.board.length; i++) {
+		// tie
+		if (!this.board[0].includes(0) && !this.board[1].includes(0) && !this.board[2].includes(0)) {
+			this.gameOver = true;
+		}
 		// horizontal win
 		if (this.board[i][0] && 
 			(this.board[i][0] === this.board[i][1] && this.board[i][1] === this.board[i][2])){
@@ -61,8 +96,8 @@ TicTacToe.prototype.checkGameOver = function() {
 		this.gameOver = true;
 		this.winner = this.board[1][1];
 	}
-	// tie
-	if (!this.board[0].includes(0) && !this.board[1].includes(0) && !this.board[2].includes(0)) {
-		this.gameOver = true;
+	// show result modal
+	if (this.gameOver === true) {
+		displayModal(this);
 	}
 };
