@@ -31,8 +31,11 @@ button {
   margin-top: 20px;
   font-size: 22px;
   padding: 10px;
-  border: 2px solid #36A0BE;
+  border: 2px solid white;
   background-color: #80d4ea;
   color: white;
-  box-shadow: 2px 2px #36A0BE;
+}
+
+button:hover {
+  background-color: #36A0BE;
 }

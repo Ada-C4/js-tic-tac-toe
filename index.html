@@ -30,6 +30,8 @@
     <button id="new_game">
       New Game
     </button>
+    <div id="player_one"></div>
+    <div id="player_two"></div>
   </body>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="tic-tac-toe.js"></script>
@@ -40,7 +42,7 @@
         game.turn(this.id);
       });
       $("#new_game").click(function() {
-        game = game.clearBoard();
+        game = game.newGame();
         $("td").on("click", function() {
           game.turn(this.id);
         });
