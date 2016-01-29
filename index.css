@@ -3,4 +3,10 @@
   width: 100px;
   background-color: green;
   display: inline-block;
+  vertical-align: top;
+  margin-top: 5px;
+}
+
+.clicked {
+  text-align: center;
 }
