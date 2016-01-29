@@ -59,58 +59,48 @@ TicTacToe.prototype = {
   },
 
   incrementScore: function(index, player) {
+    var self = this;
     if (player == 1) {
       self.player_1_score[index]++;
+      if (self.player_1_score[index] == 3) {
+        self.playerWin(1);
+      }
     } else {
       self.player_2_score[index]++;
+      if (self.player_2_score[index] == 3) {
+        self.playerWin(2);
+      }
     }
+  },
+
+  playerWin: function(player) {
+    alert("Player " + player + " wins!");
+    this.resetBoard();
+    this.trackWins(player);
   },
 
   updateScore: function(space, player) {
     var self = this;
     if(space.substring(0,2) == "r1") {
-      incrementScore(0, player);
+      self.incrementScore(0, player);
     } else if (space.substring(0,2) == "r2") {
-      incrementScore(1, player);
+      self.incrementScore(1, player);
     } else if (space.substring(0,2) == "r3") {
-      incrementScore(2, player);
+      self.incrementScore(2, player);
     }
     if (space.substring(2,4) == "c1") {
-      incrementScore(3, player);
+      self.incrementScore(3, player);
     } else if (space.substring(2,4) == "c2") {
-      incrementScore(4, player);
+      self.incrementScore(4, player);
     } else if (space.substring(2,4) == "c3") {
-      incrementScore(5, player);
+      self.incrementScore(5, player);
     }
     if (["r1c1", "r2c2", "r3c3"].includes(space)) {
-      incrementScore(6, player);
+      self.incrementScore(6, player);
     }
     if (["r1c3", "r2c2", "r3c1"].includes(space)) {
-      incrementScore(7, player);
+      self.incrementScore(7, player);
     }
-    if (self.moves >= 5) {
-      self.checkForWinner();
-    }
-  },
-
-  checkForWinner: function() {
-    var self = this;
-    self.player_1_score.forEach(function(score) {
-      if (score == 3) {
-        alert("Player 1 wins!");
-        self.resetBoard();
-        self.trackWins(1);
-      }
-    });
-    self.player_2_score.forEach(function(score) {
-      if (score == 3) {
-        alert("Player 2 wins!");
-        self.resetBoard();
-        self.trackWins(2);
-      }
-    });
-    // player_1_score = [ row1, row2, row3, col1, col2, col3, diagleft, diagright ]
-    // player_2_score = [ row1, row2, row3, col1, col2, col3, diagleft, diagright ]
   },
 
   trackWins: function(player) {
