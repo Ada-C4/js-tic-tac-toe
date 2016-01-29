@@ -1,19 +1,26 @@
+@font-face {
+  font-family: antiqueOlive;
+  src: url("AntiqueOlive.ttf");
+}
+
 html {
 
 }
 
 body {
-  background-color: #5B4456;
+  background-color: #F98F1B;
 }
 
 h1 {
-  font-family: 'Chewy', cursive;
+  font-family: 'antiqueOlive', cursive;
+  letter-spacing: -3px;
   text-align: center;
-  color: #CAD8DA;
+  color: black;
   font-size: 48px;
 }
 
 h2 {
+  margin-top: -5px;
   font-family: 'Chewy', cursive;
   text-align: center;
   color: #CAD8DA;
@@ -26,9 +33,9 @@ div.row {
 
 div.square {
   text-align: center;
-  border-radius: 25px;
-  border: 2px solid #986977;
-  background-color: #85967E;
+  /*border-radius: 25px;*/
+  border: 5px dashed black;
+  background-color: white;
   height: 150px;
   width: 150px;
   margin: 5px;
@@ -38,4 +45,5 @@ div.square {
 p {
   position: absolute;
   text-align: center;
+  font-size: 64px;
 }

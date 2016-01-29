@@ -1,7 +1,7 @@
 function TicTacToe() {
   this.board = [[0,0,0], [0,0,0], [0,0,0]];
-  this.playerOne = 'X';
-  this.playerTwo = 'O';
+  this.playerOne = '🌵';
+  this.playerTwo = '🌻';
   this.currentPlayer = this.playerOne;
   this.turns = 0;
   this.over = false;
@@ -112,6 +112,7 @@ TicTacToe.prototype.gameOver = function() {
     return two;
   }
 
+  // there's a draw if no one has won after 9 turns
   if (this.turns > 8) {
     return true;
   } else {
