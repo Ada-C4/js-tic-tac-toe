@@ -10,6 +10,7 @@ TicTacToe.prototype = {
   player_2_score: [ 0, 0, 0, 0, 0, 0, 0, 0 ],
   player_1_wins: 0,
   player_2_wins: 0,
+  moves: 0,
 
   pickSpaces: function(){
     var self = this;
@@ -21,15 +22,20 @@ TicTacToe.prototype = {
         if ($("." + box).css('background-color') == 'rgb(0, 0, 255)') {
           if(player === 1){
             $("." + box).css('background-color', 'red');
+            self.moves++;
             self.updateScore(box, player);
             player = 2;
           } else {
             $("." + box).css('background-color', 'yellow');
+            self.moves++;
             self.updateScore(box, player);
             player = 1;
           }
         }
-        self.gameOver();
+        if (self.moves == 9) {
+          alert("It's a tie!");
+          self.resetBoard();
+        }
       });
     });
   },
@@ -42,6 +48,7 @@ TicTacToe.prototype = {
     this.pickSpaces();
     this.player_1_score = [ 0, 0, 0, 0, 0, 0, 0, 0 ];
     this.player_2_score = [ 0, 0, 0, 0, 0, 0, 0, 0 ];
+    this.moves = 0;
   },
 
   resetButton: function(){
@@ -49,20 +56,6 @@ TicTacToe.prototype = {
     $('#reset-button').click(function() {
       self.resetBoard();
     });
-  },
-
-  gameOver: function() {
-    var self = this;
-    var count = 0;
-    self.board_spaces.forEach(function(box) {
-      if ($("." + box).css('background-color') == 'rgb(0, 0, 255)') {
-        count++;
-      }
-    });
-    if (count === 0){
-      alert("It's a tie!");
-      self.resetBoard();
-    }
   },
 
   updateScore: function(space, player) {
@@ -119,7 +112,9 @@ TicTacToe.prototype = {
         self.player_2_score[7]++;
       }
     }
-    self.checkForWinner();
+    if (self.moves >= 5) {
+      self.checkForWinner();
+    }
   },
 
   checkForWinner: function() {
