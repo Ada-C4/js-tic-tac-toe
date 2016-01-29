@@ -36,7 +36,8 @@ TicTacToe.prototype.takeTurn = function(clickedSquare){
   var nextBoard = this.markArray(coords);
   this.updateBoard(nextBoard);
   this.markSquare(clickedSquare);
-  this.checkGame();
+  this.checkFull(); //checks to see if board is full
+  this.checkGame(); //checks to see if game is won
   if (this.currentWinner !== false){
     this.endGame(this.currentWinner);
   } else {
@@ -67,6 +68,25 @@ TicTacToe.prototype.getCoords = function(square) {
   var coordinates = {row: rowInd, col: colInd};
   return coordinates
 };
+
+//checks to see if board is full
+TicTacToe.prototype.checkFull = function() {
+  var occupied = new Array;
+  var squares = $("td");
+  for (var i = 0; i < 9; i++) {
+    square = squares[i];
+    if (square.classList != []){
+      occupied.push(square);
+    }
+    return occupied;
+  };
+  if (occupied.length == 0) {
+    this.updateWinner("tie");
+  }
+};
+
+
+
 
 //checks to see if game is finished
 TicTacToe.prototype.checkGame = function () {
@@ -112,7 +132,13 @@ TicTacToe.prototype.checkGame = function () {
 //changes display when the game is over
 //new game isn't started until the next click on a box
 TicTacToe.prototype.endGame = function (winner) {
-  console.log(winner + " wins!");
+  if (this.currentWinner == "tie") {
+    $(".vader-win").removeClass("hide");
+  } else if (this.currentWinner == "vader") {
+    $(".trooper-win").removeClass("hide");
+  } else {
+    $(".tie").removeClass("hide");
+  };
   $(".gameover").removeClass("hide");
 };
 
