@@ -51,13 +51,15 @@ TicTacToe.prototype.begin = function(){
 };
 
 //changes the array contents based on square that was clicked
-//updates the board
-TicTacToe.prototype.markArray = function(coordinates) {
-  console.log(coordinates);
-  //put entry into array
-  //return array to update board
-  //
-  };
+//returns array that can be used to update the board
+//board is marked with player name
+TicTacToe.prototype.markArray = function(coords) {
+  var board = this.currentBoard;
+  var row = coords["row"];
+  var col = coords["col"];
+  board[row][col] = this.currentPlayer;
+  return board;
+};
 
 //alternates player
 TicTacToe.prototype.changePlayer = function() {
