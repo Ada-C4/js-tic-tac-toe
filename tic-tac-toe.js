@@ -18,7 +18,11 @@ TicTacToe.prototype.turn = function(cell_id) {
     this.markCell(cell_id, this.whose_turn);
     this.incrementTurn();
     var winner = this.checkWin()[1];
-    if (this.state == "game over") {
+    this.checkGameOver();
+    if (this.state == "game over" && winner === undefined) {
+      $(".draw").append("Draw!");
+    }
+    else if (this.state == "game over") {
       this.displayWinner(winner);
     }
   }
@@ -101,10 +105,10 @@ TicTacToe.prototype.checkWin = function() {
 
 TicTacToe.prototype.displayWinner = function(winner) {
   if (winner == "X") {
-    $("#player_one").append("Player One wins!");
+    $(".player_one").append("Player One wins!");
   }
-  else {
-    $("#player_two").append("Player Two wins!");
+  else if (winner == "O") {
+    $(".player_two").append("Player Two wins!");
   }
 };
 
@@ -113,7 +117,8 @@ TicTacToe.prototype.newGame = function() {
   for (var i = 0; i < 9; i++) {
     $("#" + i.toString()).html("");
   }
-  $("#player_one").html("");
-  $("#player_two").html("");
+  $(".player_one").html("");
+  $(".player_two").html("");
+  $(".draw").html("");
   return game;
 };
