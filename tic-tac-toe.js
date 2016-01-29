@@ -4,6 +4,7 @@ function TicTacToe() {
   this.playerTwo = "O";
   this.currentPlayer = this.playerOne;
   this.gameOver = false;
+  this.turns = 0;
 }
 
 TicTacToe.prototype.play = function(clicked){
@@ -11,7 +12,9 @@ TicTacToe.prototype.play = function(clicked){
   if (this.gameOver === false) {
     this.turn(clicked);
     this.checkWinner();
-    if(this.gameOver === true){
+    if (this.turns === 9){
+      $("#alert").text("Nobody Wins");
+    } else if (this.gameOver === true){
       $("#alert").text("Player " + this.currentPlayer + " is the winner!");
     } else {
       this.togglePlayer();
@@ -31,6 +34,7 @@ TicTacToe.prototype.turn = function(clicked) {
       }
     }
   }
+  this.turns += 1;
 };
 
 TicTacToe.prototype.togglePlayer = function(){
