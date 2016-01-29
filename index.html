@@ -14,35 +14,35 @@
     <div id="tic-tac-toe">
       <div class="row">
         <div class="square" id="top-left">
-
+          <img class="banana" src="banana.png">
         </div>
         <div class="square" id="top-mid">
-
+          <img class="banana" src="banana.png">
         </div>
         <div class="square" id="top-right">
-
+          <img class="banana" src="banana.png">
         </div>
       </div>
       <div class="row">
         <div class="square" id="mid-left">
-
+          <img class="banana" src="banana.png">
         </div>
         <div class="square" id="mid-mid">
-
+          <img class="banana" src="banana.png">
         </div>
         <div class="square" id="mid-right">
-
+          <img class="banana" src="banana.png">
         </div>
       </div>
       <div class="row">
         <div class="square" id="bottom-left">
-
+          <img class="banana" src="banana.png">
         </div>
         <div class="square" id="bottom-mid">
-
+          <img class="banana" src="banana.png">
         </div>
         <div class="square" id="bottom-right">
-
+          <img class="banana" src="banana.png">
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
       var game = new TicTacToe();
       $(".square").one("click", function () {
         if (game.over === false) {
-          $(this).append('<p>' + game.currentPlayer.pictureURL + '</p>');
+          $(this).html("<img src=" + game.currentPlayer.pictureURL + ">");
           game.updateBoard(this);
           game.turns += 1;
           game.play();

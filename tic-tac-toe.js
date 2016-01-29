@@ -1,12 +1,12 @@
 function TicTacToe() {
   this.board = [[0,0,0], [0,0,0], [0,0,0]];
   this.playerOne = {
-    name: "G.O.B.",
-    pictureURL: "😈"
+    name: "George Sr.",
+    pictureURL: "georgesr.jpg"
   };
   this.playerTwo = {
-    name: "Tobias",
-    pictureURL: "😡"
+    name: "Lucille",
+    pictureURL: "lucille.png"
   };
   this.currentPlayer = this.playerOne;
   this.turns = 0;
