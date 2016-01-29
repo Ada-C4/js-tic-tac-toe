@@ -9,7 +9,7 @@ TicTacToe.prototype.play = function() {
   var self = this;
   this.board_spaces.forEach(function(space) {
     $("#" + space).click(function() {
-      // Check to see if space has not been taken
+      // Proceed if space has not been taken
       if (this.innerHTML === "") {
         $("#" + space).text(self.getSymbol());
         self.updateBoard(this);
@@ -36,7 +36,7 @@ TicTacToe.prototype.checkWinner = function() {
   } else if (this.board[0][2] == this.board[1][2] && this.board[1][2] == this.board[2][2]) {
       this.displayWinner(this.board[0][2] + " wins!");
     // Check all diagonal wins
-  } else if (this.board[0][0] == this.board[1][1] == && this.board[1][1] == this.board[2][2]) {
+  } else if (this.board[0][0] == this.board[1][1] && this.board[1][1] == this.board[2][2]) {
       this.displayWinner(this.board[0][0] + " wins!");
   } else if (this.board[2][0] == this.board[1][1] && this.board[1][1] == this.board[0][2]) {
       this.displayWinner(this.board[2][0] + " wins!");
