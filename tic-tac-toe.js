@@ -13,6 +13,11 @@ function TicTacToe() {
   this.over = false;
 }
 
+TicTacToe.prototype.reset = function() {
+  this.board = [[0,0,0], [0,0,0], [0,0,0]];
+  this.turns = 0;
+};
+
 TicTacToe.prototype.updateBoard = function(square) {
   switch ($(square).attr('id')) {
     case "top-left":

@@ -54,6 +54,9 @@
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
+      $(".reset").click(function () {
+        location.reload();
+      });
       var game = new TicTacToe();
       $(".square").one("click", function () {
         if (game.over === false) {
