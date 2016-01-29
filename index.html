@@ -43,7 +43,7 @@
       var gameBoard = new TicTacToe();
       gameBoard.start();
       $('.square').click(function() {
-        gameBoard.makeMove($(this));
+        $(this).fadeTo(150, 0.1, function(){gameBoard.makeMove($(this));}).fadeTo(150, 1);
       });
       $('.restart').click(function() {
         gameBoard.start();
