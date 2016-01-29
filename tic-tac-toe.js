@@ -18,18 +18,19 @@ function TicTacToe () {
 TicTacToe.prototype.begin = function(){
   this.updateBoard([[0,0,0], [0,0,0],[0,0,0]]);
   this.updatePlayer("trooper");
+  this.updateWinner(false);
 };
 
 
 //logic for a single turn
 TicTacToe.prototype.takeTurn = function(clickedSquare){
   var coords = this.getCoords(clickedSquare);
-  var newArray = this.markArray(coords);
-  this.updateBoard(newArray);
+  var nextBoard = this.markArray(coords);
+  this.updateBoard(nextBoard);
   this.markSquare(clickedSquare);
-  var winner = this.checkGame();
-  if (winner != false){
-    this.endGame(winner);
+  this.checkGame();
+  if (this.currentWinner !== false){
+    this.endGame(this.currentWinner);
   } else {
     this.changePlayer();
   }
@@ -41,10 +42,14 @@ TicTacToe.prototype.updatePlayer = function(nextPlayer){
   this.currentPlayer = nextPlayer;
 };
 
+//defines who the current winner is
+TicTacToe.prototype.updateWinner = function(nextWinner){
+  this.currentWinner = nextWinner;
+}
 
-//defines the board
-TicTacToe.prototype.updateBoard = function(newArray) {
-  this.currentBoard = newArray;
+//defines what the current board is
+TicTacToe.prototype.updateBoard = function(nextBoard) {
+  this.currentBoard = nextBoard;
 }
 
 //gets the coordinates from which square was clicked
@@ -57,14 +62,28 @@ TicTacToe.prototype.getCoords = function(square) {
 
 //checks to see if game is finished
 TicTacToe.prototype.checkGame = function () {
-  // return "vader";
-  return false;
+  board = this.currentBoard;
+  var win = false;
+  //check to see if any rows contain all the same value (horizontal win)
+  board.forEach(function(row) {
+    for (var i = 0; i < row.length-2; i++) {
+      if (row[i] == row[i+1] && row[i] != 0) {
+        win = true;
+      }
+    }
+    return win;
+   });
 
+  //check if there are vertical wins
+  //add code here
+ if (win == true) {
+   this.updateWinner(this.currentPlayer);
+ }
 };
 
 //changes display when the game is over
 TicTacToe.prototype.endGame = function (winner) {
-  console.log(winner + "wins!");
+  console.log(winner + " wins!");
 };
 
 //checks to see if that spot is occupied
