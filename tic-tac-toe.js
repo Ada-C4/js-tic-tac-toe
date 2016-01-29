@@ -7,9 +7,6 @@ function TicTacToe() {
 //   var winConditions = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8],[0,4,8], [6,4,2]];
 // };
 
-// reset board
-
-
 TicTacToe.prototype = {
   resetBoard: function(){
     $(".square").each(function(){
@@ -18,12 +15,12 @@ TicTacToe.prototype = {
   },
 
   // check which player and return the appropriate mark
- drawMark: function(player){
-   return player == 1 ? '🍍' : '🌺';
- },
+  drawMark: function(player){
+    return player == 1 ? '🍍' : '🌺';
+  },
 
-//check every square - if they are all filled, then do alert/game over TicTacToe
- checkForTie: function() {
+  //check every square - if they are all filled, then do alert/game over TicTacToe
+  checkForTie: function() {
    var self = this;
    var filled = 0;
    $(".square").each(function(){
@@ -35,10 +32,10 @@ TicTacToe.prototype = {
      alert("Game Over - It's a tie!");
      self.resetBoard();
    }
- },
+  },
 
- // playing the game, what happens when you click each space
- clickSpace: function() {
+  // playing the game, what happens when you click each space
+  clickSpace: function() {
    var self = this;
    var player = player || 1;
    $(".square").on("click", function() {
@@ -53,5 +50,4 @@ TicTacToe.prototype = {
        self.checkForTie();
      });
    }
-
 };
