@@ -11,19 +11,20 @@ TicTacToe.prototype = {
 
   pickSpaces: function(){
     var self = this;
-    var player = 0;
+    var player = 1;
     self.board_spaces.forEach(function(box) {
       $("." + box).click(function() {
         if ($("." + box).css('background-color') == 'rgb(0, 0, 255)') {
-          if(player === 0){
+          if(player === 1){
             $("." + box).css('background-color', 'red');
-            player = 1;
+            self.updateScore(box, player);
+            player = 2;
           } else {
             $("." + box).css('background-color', 'yellow');
-            player = 0;
+            self.updateScore(box, player);
+            player = 1;
           }
         }
-        self.updateScore(box, player);
         self.gameOver();
       });
     });
@@ -32,7 +33,9 @@ TicTacToe.prototype = {
   resetBoard: function(){
     this.board_spaces.forEach(function(box) {
       $("." + box).css('background-color', 'blue');
+      $("." + box).off('click');
     });
+    this.pickSpaces();
     this.player_1_score = [ 0, 0, 0, 0, 0, 0, 0, 0 ];
     this.player_2_score = [ 0, 0, 0, 0, 0, 0, 0, 0 ];
   },
@@ -61,52 +64,52 @@ TicTacToe.prototype = {
   updateScore: function(space, player) {
     var self = this;
     if(space.substring(0,2) == "r1") {
-      if (player === 0) {
+      if (player === 1) {
         self.player_1_score[0]++;
       } else {
         self.player_2_score[0]++;
       }
     } else if (space.substring(0,2) == "r2") {
-      if (player === 0) {
+      if (player === 1) {
         self.player_1_score[1]++;
       } else {
         self.player_2_score[1]++;
       }
     } else if (space.substring(0,2) == "r3") {
-      if (player === 0) {
+      if (player === 1) {
         self.player_1_score[2]++;
       } else {
         self.player_2_score[2]++;
       }
     }
     if (space.substring(2,4) == "c1") {
-      if (player === 0) {
+      if (player === 1) {
         self.player_1_score[3]++;
       } else {
         self.player_2_score[3]++;
       }
     } else if (space.substring(2,4) == "c2") {
-      if (player === 0) {
+      if (player === 1) {
         self.player_1_score[4]++;
       } else {
         self.player_2_score[4]++;
       }
     } else if (space.substring(2,4) == "c3") {
-      if (player === 0) {
+      if (player === 1) {
         self.player_1_score[5]++;
       } else {
         self.player_2_score[5]++;
       }
     }
     if (["r1c1", "r2c2", "r3c3"].includes(space)) {
-      if (player === 0) {
+      if (player === 1) {
         self.player_1_score[6]++;
       } else {
         self.player_2_score[6]++;
       }
     }
     if (["r1c3", "r2c2", "r3c1"].includes(space)) {
-      if (player === 0) {
+      if (player === 1) {
         self.player_1_score[7]++;
       } else {
         self.player_2_score[7]++;
