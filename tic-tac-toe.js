@@ -25,6 +25,11 @@ TicTacToe.prototype.play = function() {
             self.clicksOff(self);
             // display button to play again
             $('#tic-tac-toe').append("<form><input type='button' onClick='history.go(0)' value='Play Again'></form>");
+          } else if (self.isGameTied()){
+            // announce tie, prevent clicks, show replay button
+            $('#tic-tac-toe').append("<h3>Tie!</h3>");
+            self.clicksOff(self);
+            $('#tic-tac-toe').append("<form><input type='button' onClick='history.go(0)' value='Play Again'></form>");
           } else {
             // switch players
             self.turn = "player2";
@@ -74,7 +79,7 @@ TicTacToe.prototype.isGameWon = function() {
   return isWon;
 };
 
-TicTacToe.prototype.isGameTied = function(gameObject) {
+TicTacToe.prototype.isGameTied = function() {
   var self = this, tie = true;
 
   this.boardTiles.forEach(function(row){
