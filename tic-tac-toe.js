@@ -12,5 +12,7 @@ TicTacToe.prototype.checkGameOver =function() {
 // DRY this code up
 // This adds stuff into each
 $(".square").on("click", function() {
-    $(this).append("x");
+    if(this.innerText == ""){
+      $(this).append("x");
+    };
   });
