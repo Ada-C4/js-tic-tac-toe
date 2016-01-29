@@ -62,20 +62,40 @@ TicTacToe.prototype.getCoords = function(square) {
 
 //checks to see if game is finished
 TicTacToe.prototype.checkGame = function () {
-  board = this.currentBoard;
+  var board = this.currentBoard;
   var win = false;
-  //check to see if any rows contain all the same value (horizontal win)
-  board.forEach(function(row) {
-    for (var i = 0; i < row.length-2; i++) {
-      if (row[i] == row[i+1] && row[i] != 0) {
+
+  //identify combos that need to be checked
+  //situation is simply enough that we don't really need to iterate
+  var row1 = board[0];
+  var row2 = board[1];
+  var row3 = board[2];
+  var col1 = [row1[0], row2[0], row3[0]];
+  var col2 = [row1[1], row2[1], row3[1]];
+  var col3 = [row1[2], row2[2], row3[2]];
+  var diag1 = [row1[0], row2[1], row3[2]];
+  var diag2 = [row1[2], row2[1], row3[0]];
+
+  //initialize an array that will store combos to be checked
+  var combos = [row1, row2, row3, col1, col2, col3, diag1, diag2]
+
+  //get rid of any combo that has a zero in it
+  var nonzeroCombos = new Array;
+  combos.forEach(function(combo) {
+    if (combo[0] != 0 && combo[1] != 0 && combo[2] != 0) {
+      nonzeroCombos.push(combo);
+    }
+    return nonzeroCombos;
+  });
+
+  //check to see if any combos contain all the same value
+  nonzeroCombos.forEach(function(combo) {
+      if (combo[0] === combo[1] && combo[1] === combo[2]) {
         win = true;
       }
-    }
     return win;
    });
 
-  //check if there are vertical wins
-  //add code here
  if (win == true) {
    this.updateWinner(this.currentPlayer);
  }
