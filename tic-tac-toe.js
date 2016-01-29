@@ -47,7 +47,11 @@ TicTacToe.prototype.checkWinner = function() {
 };
 
 TicTacToe.prototype.displayWinner = function(winner) {
-  swal(winner);
+  swal({
+    title: winner,
+    text: "Great Job.",
+    confirmButtonColor: "#47d1d1",
+    imageUrl: "https://pbs.twimg.com/profile_images/479955426390196224/mB_v2TSf.png" });
   this.resetGame();
 };
 
