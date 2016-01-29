@@ -8,10 +8,14 @@ TicTacToe.prototype = {
   board_spaces: ["r1c1", "r1c2", "r1c3", "r2c1", "r2c2", "r2c3", "r3c1", "r3c2", "r3c3"],
   player_1_score: [ 0, 0, 0, 0, 0, 0, 0, 0 ],
   player_2_score: [ 0, 0, 0, 0, 0, 0, 0, 0 ],
+  player_1_wins: 0,
+  player_2_wins: 0,
 
   pickSpaces: function(){
     var self = this;
     var player = 1;
+    $("#player-1-wins").html(this.player_1_wins);
+    $("#player-2-wins").html(this.player_2_wins);
     self.board_spaces.forEach(function(box) {
       $("." + box).click(function() {
         if ($("." + box).css('background-color') == 'rgb(0, 0, 255)') {
@@ -124,15 +128,27 @@ TicTacToe.prototype = {
       if (score == 3) {
         alert("Player 1 wins!");
         self.resetBoard();
+        self.trackWins(1);
       }
     });
     self.player_2_score.forEach(function(score) {
       if (score == 3) {
         alert("Player 2 wins!");
         self.resetBoard();
+        self.trackWins(2);
       }
     });
     // player_1_score = [ row1, row2, row3, col1, col2, col3, diagleft, diagright ]
     // player_2_score = [ row1, row2, row3, col1, col2, col3, diagleft, diagright ]
+  },
+
+  trackWins: function(player) {
+    if (player == 1) {
+      this.player_1_wins++;
+      $("#player-1-wins").html(this.player_1_wins);
+    } else {
+      this.player_2_wins++;
+      $("#player-2-wins").html(this.player_2_wins);
+    }
   },
 };
