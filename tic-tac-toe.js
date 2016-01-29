@@ -15,28 +15,25 @@ TicTacToe.prototype.getBoard = function() {
 
 
 $("td").bind("click", function() {
-
-    if (turn%2 === 0){
-     //board.forEach(box);{
-       //if(this === box){
-        // box = "X";
-       //}
-       var index = 0;
-       for (index = 0; index < boardState.board.length; index ++){
-         if (boardState.board[index] === this.className){
-           alert(boardState.board[index] + "  =  " + this.className + "  YAY");
-           $(this).addClass("x-clicked");
-         }
-       }
-     }
-
-       //alert(this.className);}
-
-
-    // $(this).addClass("x-clicked");
-      turn = turn + 1;
-  // }else{
-    // $(this).addClass("o-clicked");
-    // turn = turn + 1;
-  // }
+  if (turn%2 === 0){
+    var index = 0;
+      for (index = 0; index < boardState.board.length; index ++){
+        if (boardState.board[index] === this.className){
+          alert(boardState.board[index] + "  =  " + this.className + "  YAY");
+          $(this).addClass("x-clicked");
+          boardState.board[index] = "x";
+          turn = turn + 1;
+        }
+      }
+    }else{
+      var index = 0;
+      for (index = 0; index < boardState.board.length; index ++){
+        if (boardState.board[index] === this.className){
+          alert(boardState.board[index] + "  =  " + this.className + "  YAY");
+          $(this).addClass("o-clicked");
+          boardState.board[index] = "o";
+          turn = turn + 1;
+        }
+      }
+    }
 });
