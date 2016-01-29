@@ -7,6 +7,7 @@ function TicTacToe() {
 
 TicTacToe.prototype.play = function(clicked){
   this.turn(clicked);
+  this.togglePlayer();
 };
 
 
@@ -26,5 +27,9 @@ TicTacToe.prototype.turn = function(clicked) {
 
 
 TicTacToe.prototype.togglePlayer = function(){
-
+  if (this.currentPlayer == this.playerOne) {
+    this.currentPlayer = this.playerTwo;
+  } else if (this.currentPlayer == this.playerTwo) {
+    this.currentPlayer = this.playerOne;
+  }
 };
