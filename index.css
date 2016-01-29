@@ -1,6 +1,9 @@
 html {
 }
 
+.hide {
+  display: none;
+}
 
 table {
   border: 3px solid black;

@@ -104,6 +104,7 @@ TicTacToe.prototype.checkGame = function () {
 //changes display when the game is over
 TicTacToe.prototype.endGame = function (winner) {
   console.log(winner + " wins!");
+  $(".gameover").removeClass("hide");
 };
 
 //checks to see if that spot is occupied
