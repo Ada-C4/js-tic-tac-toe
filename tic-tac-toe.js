@@ -46,11 +46,18 @@ $(document).on('ready', function() {
   };
 
   TicTacToe.prototype.won = function(){
-    if (this.board.slice(0,2) === ['x','x','x'] || ['o','o','o']) {
+    if (this.board.slice(0,2) === ['x','x','x'] || this.board.slice(0,2) === ['o','o','o']) {
+      console.log("You win!");
+      return true;
+    } elseif (this.board.slice(3,5) === ['x','x','x'] || this.board.slice(3,5) === ['o','o','o'] {
+      console.log("You win!");
+      return true;
+    } elseif (this.board.slice(6,8) === ['x','x','x'] || this.board.slice(6,8) === ['o','o','o'] {
       console.log("You win!");
       return true;
     }
   };
+  // if someone has taken 8 or 9 turns with no win, its a draw.
 
 
 // var won = function(board){
