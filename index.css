@@ -1,10 +1,21 @@
 html {
+  background: url(./jungle.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
+h1 {
+  text-align: center;
+  padding-bottom: 5%;
+  padding-top: 10%;
 }
 
 table {
   border-collapse: collapse;
   width: 30%;
+  margin: auto;
 }
 
 table td {
