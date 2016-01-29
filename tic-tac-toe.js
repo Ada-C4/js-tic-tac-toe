@@ -14,7 +14,6 @@ function TicTacToe () {
 TicTacToe.prototype.begin = function(){
   this.updateBoard([[0,0,0], [0,0,0],[0,0,0]]);
   this.updatePlayer("trooper");
-  //set up everything for a new game, if needed
 };
 
 
@@ -24,7 +23,12 @@ TicTacToe.prototype.takeTurn = function(clickedSquare){
   var newArray = this.markArray(coords);
   this.updateBoard(newArray);
   this.markSquare(clickedSquare);
-  this.changePlayer();
+  var winner = this.checkGame();
+  if (winner != false){
+    this.endGame(winner);
+  } else {
+    this.changePlayer();
+  }
 };
 
 //defines who the current player is
@@ -48,8 +52,16 @@ TicTacToe.prototype.getCoords = function(square) {
 
 //checks to see if game is finished
 TicTacToe.prototype.checkGame = function () {
+  // return "vader";
+  return false;
 
 };
+
+//changes display when the game is over
+TicTacToe.prototype.endGame = function (winner) {
+  console.log(winner + "wins!");
+};
+
 
 //changes the array contents based on square that was clicked
 //returns array that can be used to update the board
