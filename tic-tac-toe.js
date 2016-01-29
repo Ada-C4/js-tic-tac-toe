@@ -11,24 +11,33 @@ function TicTacToe() {
 
 
 TicTacToe.prototype = {
+  resetBoard: function(){
+    $(".square").each(function(){
+      this.innerText = "";
+    });
+  },
+
+  // check which player and return the appropriate mark
  drawMark: function(player){
    return player == 1 ? '🍍' : '🌺';
  },
 
 //check every square - if they are all filled, then do alert/game over TicTacToe
  checkForTie: function() {
+   var self = this;
    var filled = 0;
    $(".square").each(function(){
-     debugger;
      if(this.innerText == ""){
        filled++;
      }
    });
    if (filled == 0){
      alert("Game Over - It's a tie!");
+     self.resetBoard();
    }
  },
 
+ // playing the game, what happens when you click each space
  clickSpace: function() {
    var self = this;
    var player = player || 1;
