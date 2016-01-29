@@ -44,11 +44,11 @@ TicTacToe.prototype.makeMove = function(el) {
 		this.board[row][col] = this.currentPlayer;
 		this.currentPlayer = this.currentPlayer === 1? 2 : 1;	
 		this.printGameboard();
-		this.checkGameOver();
+		this.checkGameOver(col, row);
 	}
 };
 
-TicTacToe.prototype.checkGameOver = function() {
+TicTacToe.prototype.checkGameOver = function(col, row) {
 	function displayModal(gameBoard){
 		var result, img;
     if (gameBoard.winner === 0) {
@@ -79,29 +79,21 @@ TicTacToe.prototype.checkGameOver = function() {
         ],
     });
 	}
-	for (var i = 0; i < this.board.length; i++) {
-		// tie
-		if (!this.board[0].includes(0) && !this.board[1].includes(0) && !this.board[2].includes(0)) {
-			this.gameOver = true;
-		}
-		// horizontal win
-		if (this.board[i][0] && 
-			(this.board[i][0] === this.board[i][1] && this.board[i][1] === this.board[i][2])){
-			this.gameOver = true;
-			this.winner = this.board[i][0];
-		}
-		// vertical win
-		if (this.board[0][i] && 
-			(this.board[0][i] === this.board[1][i] && this.board[1][i] === this.board[2][i])){
-			this.gameOver = true;
-			this.winner = this.board[0][i];
-		}
-	}
-	// diagonal win
-	if ((this.board[1][1] && this.board[0][0] == this.board[1][1] && this.board[1][1] == this.board[2][2]) ||
-		(this.board[1][1] && this.board[2][0] == this.board [1][1] && this.board[1][1] == this.board[0][2])){
+	// tie
+	if (!this.board[0].includes(0) && !this.board[1].includes(0) && !this.board[2].includes(0)) {
 		this.gameOver = true;
-		this.winner = this.board[1][1];
+	}
+	
+	if (
+		// horizontal win
+		(this.board[row][0] === this.board[row][1] && this.board[row][1] === this.board[row][2]) ||
+		// vertical win
+		(this.board[0][col] === this.board[1][col] && this.board[1][col] === this.board[2][col]) ||
+		// diagonal win
+		(this.board[1][1] && this.board[0][0] == this.board[1][1] && this.board[1][1] == this.board[2][2]) ||
+		(this.board[1][1] && this.board[2][0] == this.board [1][1] && this.board[1][1] == this.board[0][2])) {
+		this.gameOver = true;
+		this.winner = this.board[row][col];
 	}
 	// add to total wins for player
 	if (this.winner === 1) {
