@@ -14,27 +14,34 @@ var TicTacToe = function() {
     var self = this;
       self.board.forEach(function(cell) {
         $("#" + cell).click(function() {
-          $("#" + cell).html(///call function that returns X or 0 and then changes the player//
+          $("#" + cell).html(self.markScore(), self.changePlayer()
           );
-
         });
-      });
+      }); //ends forEach
+    };  // ends play function
 
-      changePlayer: function() {
-        
-      },
-
-      markScore: function() {
-        if (player1) {
-          return "X";
+  TicTacToe.prototype.markScore = function() {
+        if (this.player1) {
+          return "<h1 class='x'>X</h1>";
         } else {
-          return "O";
+          return "<h1 class='o'>O</h1>";
         }
-      }
+      };
+
+  TicTacToe.prototype.changePlayer = function() {
+        if (this.player1) {
+          this.player1 = false;
+          this.player2 = true;
+        } else {
+          this.player2 = false;
+          this.player1 = true;
+        }
+      };
 
 
 
 
-  };
+
+
 
 // player 1 and player 2 that switch back and forth

@@ -91,3 +91,11 @@ body {
   display: inline;
   float: left;
 }
+
+.x {
+  color: green;
+}
+
+.o {
+  color: purple;
+}
