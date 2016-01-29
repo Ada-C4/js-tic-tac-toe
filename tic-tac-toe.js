@@ -20,23 +20,12 @@ $(document).on('ready', function() {
     this.board = [];
     this.player = "player1";
     this.turns = 0;
-    // this.won = nil;
   }
 
   TicTacToe.prototype.play = function(position, marker) {
-  // this is where all my logic will live
-  // logic for when someone clicks on a color, slots are updated
-  // var slots = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
-  // this calls the turn method below. without () it would not run as a function
+  this.won();
   this.turn();
-  // now, push the x or y into the particular index we want. may eventually want a double loop.
-  // this.board.push(position);
   this.board[position] = marker;
-  // take the index of the slots array and use that to say where to push it on board.
-    // slots.forEach( function(slot) {
-    //     // update array: board will now have an x for the particular slot its going in
-    //
-    // });
   };
 
   TicTacToe.prototype.turn = function(){
@@ -56,9 +45,13 @@ $(document).on('ready', function() {
     }
   };
 
-  TicTacToe.prototype.marker = function(board){
-    
+  TicTacToe.prototype.won = function(){
+    if (this.board.slice(0,2) === ['x','x','x'] || ['o','o','o']) {
+      console.log("You win!");
+      return true;
+    }
   };
+
 
 // var won = function(board){
 //   // loop through and see if someone has won horizontally, vertically, diagonally
