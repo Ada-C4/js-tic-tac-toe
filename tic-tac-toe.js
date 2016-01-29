@@ -2,7 +2,7 @@ function TicTacToe() {
   this.boardTiles = [["row-0-col-0", "row-0-col-1", "row-0-col-2"],
     ["row-1-col-0", "row-1-col-1", "row-1-col-2"],
     ["row-2-col-0", "row-2-col-1", "row-2-col-2"]];
-  this.turn = "player1";
+  this.turn = "X";
 }
 
 TicTacToe.prototype.play = function() {
@@ -11,45 +11,31 @@ TicTacToe.prototype.play = function() {
   self.boardTiles.forEach( function(row, row_index) {
     row.forEach(function(tile, tile_index) {
       $('#' + tile).one("click", function() {
-        // if it's player 1's turn
-        if (self.turn === "player1") {
-          // add a p tag with content "X" to appropriate div for front end
-          $('#' + tile).append("<p class='clicked'>X</p>");
-          // replace boardTiles string with "X" for backend
-          self.boardTiles[row_index][tile_index] = "X";
-          // check to see if the game is won
-          if (self.isGameWon()) {
-            // announce winner
-            $('#tic-tac-toe').append("<h3>Player 1 won!</h3>");
-            // prevent divs from being clicked again
-            self.clicksOff(self);
-            // display button to play again
-            $('#tic-tac-toe').append("<form><input type='button' onClick='history.go(0)' value='Play Again'></form>");
-          } else if (self.isGameTied()){
-            // announce tie, prevent clicks, show replay button
-            $('#tic-tac-toe').append("<h3>Tie!</h3>");
-            self.clicksOff(self);
-            $('#tic-tac-toe').append("<form><input type='button' onClick='history.go(0)' value='Play Again'></form>");
-          } else {
-            // switch players
-            self.turn = "player2";
-          }
-
-        // else if it's player 2's turn, repeat same logic as above
-        } else if (self.turn === "player2") {
-          $('#' + tile).append("<p class='clicked'>O</p>");
-          self.boardTiles[row_index][tile_index] = "O";
-          if (self.isGameWon()) {
-            $('#tic-tac-toe').append("<h3>Player 2 won!</h3>");
-            self.clicksOff(self);
-            $('#tic-tac-toe').append("<form><input type='button' onClick='history.go(0)' value='Play Again'></form>");
-          } else if (self.isGameTied()) {
-            $('#tic-tac-toe').append("<h3>Tie!</h3>");
-            self.clicksOff(self);
-            $('#tic-tac-toe').append("<form><input type='button' onClick='history.go(0)' value='Play Again'></form>");
-          } else {
-            self.turn = "player1";
-          }
+        // add a p tag with X or O to correct div for front end
+        $('#' + tile).append("<p class='clicked'>" + self.turn + "</p>");
+        // replace boardTiles string with X or O for backend
+        self.boardTiles[row_index][tile_index] = self.turn;
+        // check to see if the game is won
+        if (self.isGameWon()) {
+          // announce winner
+          $('#tic-tac-toe').append("<h3>Player " + self.turn + " won!</h3>");
+          // prevent divs from being clicked again
+          self.clicksOff(self);
+          // display button to play again
+          $('#tic-tac-toe').append("<form><input type='button' onClick='history.go(0)' value='Play Again'></form>");
+        } else if (self.isGameTied()) {
+          // announce tie
+          $('#tic-tac-toe').append("<h3>Tie!</h3>");
+          // turn clicks off
+          self.clicksOff(self);
+          // display button to play again
+          $('#tic-tac-toe').append("<form><input type='button' onClick='history.go(0)' value='Play Again'></form>");
+        } else if (self.turn === "X") {
+          // if current turn was X, switch to O
+          self.turn = "O";
+        } else if (self.turn === "O") {
+          // if current turn was O, switch to X
+          self.turn = "X";
         }
       });
     });
