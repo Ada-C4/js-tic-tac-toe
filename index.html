@@ -53,10 +53,12 @@
     $(document).on('ready', function() {
       var game = new TicTacToe();
       $(".square").one("click", function () {
-        $(this).append('<p>' + game.currentPlayer + '</p>');
-        game.updateBoard(this);
-        game.turns += 1;
-        game.play();
+        if (game.over === false) {
+          $(this).append('<p>' + game.currentPlayer + '</p>');
+          game.updateBoard(this);
+          game.turns += 1;
+          game.play();
+        }
       });
     })
   </script>

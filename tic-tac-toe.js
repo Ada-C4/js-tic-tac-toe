@@ -4,6 +4,7 @@ function TicTacToe() {
   this.playerTwo = 'O';
   this.currentPlayer = this.playerOne;
   this.turns = 0;
+  this.over = false;
 }
 
 TicTacToe.prototype.updateBoard = function(square) {
@@ -42,8 +43,10 @@ TicTacToe.prototype.play = function() {
   if (this.gameOver() === false) {
     this.switchPlayer();
   } else if (this.gameOver() === true) {
+    this.over = true;
     $("body").append("<h2>It's a draw 😶</h2>");
   } else {
+    this.over = true;
     $("body").append("<h2>Congrats, " + this.gameOver() +  " !</h2>");
   }
 };
