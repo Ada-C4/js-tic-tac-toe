@@ -93,13 +93,26 @@ TicTacToe.prototype.gameOver = function() {
     return true;
   }
 
-  return false;
+  // player one wins diagonally
+  if (topLeft === one && midMid === one && bottomRight === one) {
+    return true;
+  } else if (topRight === one && midMid === one && bottomLeft === one) {
+    return true;
+  }
 
-  // if (this.turns > 8) {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
+  // player two wins diagonally
+  if (topLeft === two && midMid === two && bottomRight === two) {
+    return true;
+  } else if (topRight === two && midMid === two && bottomLeft === two) {
+    return true;
+  }
+
+  if (this.turns > 8) {
+    return true;
+  } else {
+    return false;
+  }
+  
 };
 
 TicTacToe.prototype.switchPlayer = function () {
