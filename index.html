@@ -4,12 +4,13 @@
     <title>Tic Tac Toe!</title>
     <meta charset="utf-8">
     <link href="index.css" media="screen" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Oxygen+Mono' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen+Mono|Permanent+Marker' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
     <h1>Tic Tac Toe</h1>
-    <h2 id="alert">Click on a square to begin the game</h2>
+    <button>Start a New Game</button>
+    <h2 id="alert"></h2>
     <div id="tic-tac-toe">
       <div class="row">
         <div class="square" id="1">
@@ -50,11 +51,13 @@
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
-      var game = new TicTacToe();
-      $(".square").one("click", function(){
-        game.play($(this));
+      $("button").click(function(){
+        $(".square").html('');
+        var game = new TicTacToe();
+        $(".square").one("click", function(){
+          game.play($(this));
+        });
       });
-
     })
   </script>
 </html>
