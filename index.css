@@ -1,3 +1,60 @@
-html {
-  
+body {
+  background-color: #80d4ea;
+  font-family: 'Oxygen', sans-serif;
+  color: white;
+}
+
+h1 {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+table, td {
+  border: 2px solid white;
+  margin: auto;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+}
+
+button {
+  margin: auto;
+  display: block;
+  margin-top: 20px;
+  font-size: 22px;
+  padding: 10px;
+  border: 2px solid white;
+  background-color: #80d4ea;
+  color: white;
+}
+
+button:hover {
+  background-color: #36A0BE;
+}
+
+.player_one {
+  margin-left: 100px;
+  float: left;
+  font-size: 22px;
+}
+
+.player_two {
+  margin-right: 100px;
+  float: right;
+  font-size: 22px;
+}
+
+.draw {
+  margin: auto;
+  text-align: center;
+  font-size: 22px;
+  margin-top: 20px;
 }
