@@ -132,9 +132,9 @@ TicTacToe.prototype.checkGame = function () {
 //changes display when the game is over
 //new game isn't started until the next click on a box
 TicTacToe.prototype.endGame = function (winner) {
-  if (this.currentWinner == "tie") {
+  if (this.currentWinner == "vader") {
     $(".vader-win").removeClass("hide");
-  } else if (this.currentWinner == "vader") {
+  } else if (this.currentWinner == "trooper") {
     $(".trooper-win").removeClass("hide");
   } else {
     $(".tie").removeClass("hide");
