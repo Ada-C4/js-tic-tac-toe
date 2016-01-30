@@ -1,6 +1,5 @@
 $(document).ready(function () {
   var game = new TicTacToe();
-  console.log('create and begin the game here!');
   var cells = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   cells.forEach(function(cell) {
@@ -13,12 +12,6 @@ $(document).ready(function () {
       }
       game.turn(id);
     }));
-    var result = game.win();
-    if (result === true) {
-      $(body).one("append", (function () {
-        $(this).html('<p>win1</p>');
-      }));
-    }
   });
 });
 
@@ -26,10 +19,10 @@ function TicTacToe() {
   this.player = "player1";
   this.turns = 1;
   this.board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+  this.finish = false;
 }
 
 TicTacToe.prototype.turn = function(id) {
-  // checks which player and gives access to appropriate player array
   var block = id[4] - 1;
   var index;
   if (block < 3) {
@@ -55,8 +48,28 @@ TicTacToe.prototype.turn = function(id) {
   }
 };
 
-TicTacToe.prototype.win = function() {
-  if (this.player1 == ["cell1", "cell2", "cell3"]) {
-    return true;
-  }
+TicTacToe.prototype.winningPlay = function() {
+  // rows
+  for (var i = 0; i < this.board.length; i++) {
+    var row = this.board[i];
+    if (row[0] == row[1] && row[1] == row[2]) {
+      this.finish = true;
+    }
+
+    // columns
+    var col1 = this.board[0];
+    var col2 = this.board[1];
+    var col3 = this.board[2];
+    if (col1[i] == col2[i] && col2[i] == col3[i]) {
+      this.finish = true;
+    }
+
+    // diagnonals
+    if (col1[0] == col2[1] && col2[1] == col3[2]) {
+      this.finish = true;
+    }
+    if (col1[2] == col2[1] && col2[1] == col3[0]) {
+      this.finish = true;
+    }
+}
 };
