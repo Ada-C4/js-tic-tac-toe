@@ -9,7 +9,9 @@ html {}
 }
 
 .board td.x-clicked {
-    background-color:red;
+  background-image: url("awkward_pug.png");
+  background-color:red;
+
 }
 .board td.o-clicked {
     background-color:blue;

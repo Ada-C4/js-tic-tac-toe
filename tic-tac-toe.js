@@ -21,6 +21,7 @@ TicTacToe.prototype.markBoard = function() {
         for (index = 0; index < self.board.length; index ++){
           if (self.board[index] === this.className){
             $(this).addClass("x-clicked");
+            this.style.backgroundImage = "url(corgi_friend.png)";
             self.board[index] = "X";
             turn = turn + 1;
           }
