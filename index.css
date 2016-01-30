@@ -1,3 +1,50 @@
-html {
-  
+body {
+  font-family: 'Oxygen Mono';
+  color: #3f0080;
+  text-align: center;
+}
+
+button {
+  padding: .5em;
+  border-radius: 8px;
+  border: 3px solid #3f0080;
+  color: #3f0080;
+  background-color: #e5ccff;
+  font-size: 1em;
+  font-family: 'Oxygen Mono';
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: #e5ccff;
+  color: #e5ccff;
+  background-color: #3f0080;
+}
+.square {
+  width: 8em;
+  height: 8em;
+  margin: auto;
+  padding: 0;
+  border: 3px solid;
+  background-color: #e5ccff; color: #3f0080;
+  display: inline-block;
+  border-radius: 10%;
+  position: relative;
+}
+
+p {
+  font-size: 4em;
+  position: absolute;
+  text-align: center;
+  left: .7em;
+  top: .4em;
+  margin:0;
+  font-family: 'Permanent Marker';
+}
+
+img{
+  width: 16em;
+  height: auto;
 }
