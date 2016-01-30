@@ -1,3 +1,25 @@
 html {
-  
+
+}
+
+h1 {
+  text-align: center;
+}
+
+#tictactoe {
+  text-align: center;
+}
+
+div.square {
+  width: 100px;
+  height: 100px;
+  display:inline-block;
+  border-width: thin;
+  border-style: solid;
+  border-color: black;
+  text-align: center;
+  vertical-align: top;
+  margin-bottom: 5px;
+}
+
 }
