@@ -14,10 +14,11 @@ TicTacToe.prototype.play = function(clicked){
   if (this.gameOver === false) {
     this.turn(clicked);
     this.checkWinner();
-    if (this.turns === 9){
-      $("#alert").text("Nobody Wins");
-    } else if (this.gameOver === true){
+    if (this.gameOver === true){
       $("#alert").text(this.currentPlayer.name + " is the winner!");
+    } else if (this.turns === 9){
+      this.gameOver = true;
+      $("#alert").text("The cat got the game!");
     } else {
       this.togglePlayer();
     }
