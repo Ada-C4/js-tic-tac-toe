@@ -1,3 +1,37 @@
+.board {
+  height: 100px;
+  width: 100px;
+  background-color: #b3ffff;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 5px;
+}
+
 html {
-  
+  text-align: center;
+}
+
+p {
+  font-size: 36px;
+  margin: 0;
+  padding-top: 24px;
+}
+
+body {
+  font-family: 'Indie Flower', cursive;
+}
+
+.left-margin {
+  margin-left: -7px;
+}
+
+input {
+  font-family: 'Indie Flower', cursive;
+  background-color: white;
+  border-style: dashed;
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 28px;
 }
