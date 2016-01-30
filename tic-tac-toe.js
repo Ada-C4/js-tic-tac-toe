@@ -38,7 +38,7 @@ TicTacToe.prototype = {
       if((board[winConditions[i][0]].innerText == board[winConditions[i][1]].innerText)
       && (board[winConditions[i][0]].innerText == board[winConditions[i][2]].innerText)
       && (board[winConditions[i][0]].innerText != "")){
-        alert("Player "+ player + " wins!");
+        alert("Player "+ self.drawMark(player) + " wins!");
         self.resetBoard();
       }
     }
