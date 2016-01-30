@@ -19,6 +19,7 @@ TicTacToe.prototype.play = function(clicked){
     } else if (this.turns === 9){
       this.gameOver = true;
       $("#alert").text("The cat got the game!");
+      $("<img src=\"http:\/\/www.cats.org.uk/uploads/images/pages/Feliway_that_purple_cat_228.jpg\">").insertAfter("#alert");
     } else {
       this.togglePlayer();
     }

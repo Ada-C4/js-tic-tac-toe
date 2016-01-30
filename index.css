@@ -43,3 +43,8 @@ p {
   margin:0;
   font-family: 'Permanent Marker';
 }
+
+img{
+  width: 16em;
+  height: auto;
+}
