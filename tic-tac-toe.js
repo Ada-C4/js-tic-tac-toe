@@ -25,7 +25,7 @@ TicTacToe.prototype = {
      }
    });
    if (filled == 0){
-     alert("Game Over - It's a tie!");
+     alert("🍍🌺 Game Over - It's a tie! 🍍🌺");
      self.resetBoard();
    }
   },
