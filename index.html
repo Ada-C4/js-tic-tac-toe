@@ -53,8 +53,10 @@
     $(document).on('ready', function() {
       $("button").click(function(){
         $(".square").html('');
-        var game = new TicTacToe();
-        $("#alert").text(game.currentPlayer + "'s turn");
+        var player1 = prompt("What is the name of the first player?", "Player X");
+        var player2 = prompt("What is the name of the second player?", "Player O");
+        var game = new TicTacToe(player1,player2);
+        $("#alert").text(game.currentPlayer.name + "'s turn");
         $(".square").one("click", function(){
           game.play($(this));
         });
