@@ -1,3 +1,41 @@
 html {
-  
+}
+
+body {
+  background-image: url("stars.jpg");
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
+table {
+  background-color: white;
+  border: 3px solid black;
+  margin: 0 auto;
+}
+
+table tbody tr td {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+}
+
+.trooper {
+  background-image: url("stormtrooper.jpg");
+}
+
+.vader {
+  background-image: url("vader.jpg");
 }

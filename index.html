@@ -7,15 +7,51 @@
   </head>
 
   <body>
-    <h1>Tic Tac Toe</h1>
-    <div id="tic-tac-toe"></div>
+    <h1>Dark Side Tic Tac Toe</h1>
+    <div id="tic-tac-toe">
+      <table>
+        <tbody>
+          <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    <h2 class="gameover hide">
+      <p class="vader-win hide">VADER WINS!</p>
+      <p class="trooper-win hide">TROOPER WINS!</p>
+      <p class="tie hide">NO ONE WINS!</p>
+    </h2>
+    </div>
   </body>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
-      console.log('create and begin the game here!');
+      tictac = new TicTacToe();
+      tictac.begin();
     })
   </script>
-</html>
 
+
+</html>
