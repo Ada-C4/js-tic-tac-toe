@@ -29,7 +29,7 @@ TicTacToe.prototype.play = function() {
           // turn clicks off
           self.clicksOff(self);
           // display button to play again
-          $('#tic-tac-toe').append("<button value='Play Again' onClick='window.location.href=window.location.href'>");
+          $('#tic-tac-toe').append("<form><input type='button' onClick='history.go(0)' value='Play Again'></form>");
         } else if (self.turn === "X") {
           // if current turn was X, switch to O
           self.turn = "O";
