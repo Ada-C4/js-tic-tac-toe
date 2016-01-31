@@ -7,15 +7,35 @@
   </head>
 
   <body>
-    <h1>Tic Tac Toe</h1>
+    <h1>Tic Tac Toad</h1>
+    <h2 id="winners"></h2>
     <div id="tic-tac-toe"></div>
   </body>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
-      console.log('create and begin the game here!');
+      var game = new TicTacToe();
+      game.play;
     })
   </script>
+  <div id="board">
+      <table>
+        <tr id="row1">
+          <td class="square" id="r1c1"></td>
+          <td class="square v" id="r1c2"></td>
+          <td class="square" id="r1c3"></td>
+        </tr>
+        <tr id="row2">
+          <td class="square h" id="r2c1"></td>
+          <td class="square v h" id="r2c2"></td>
+          <td class="square h" id="r2c3"></td>
+        </tr>
+        <tr id="row3">
+          <td class="square" id="r3c1"></td>
+          <td class="square v" id="r3c2" ></td>
+          <td class="square" id="r3c3"></td>
+        </tr>
+      </table>
+    </div>
 </html>
-
