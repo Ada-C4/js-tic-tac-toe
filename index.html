@@ -8,13 +8,104 @@
 
   <body>
     <h1>Tic Tac Toe</h1>
-    <div id="tic-tac-toe"></div>
+    <h3 id="game-status"></h3>
+    <div id="tic-tac-toe">
+    	<table>
+    		<tr id="rowOne">
+    			<td id="1"></td>
+    			<td id="2"></td>
+    			<td id="3"></td>
+    		</tr>
+    		<tr id="rowTwo">
+          <td id="4"></td>
+          <td id="5"></td>
+          <td id="6"></td>
+        </tr>
+        <tr id="rowThree">
+          <td id="7"></td>
+          <td id="8"></td>
+          <td id="9"></td>
+        </tr>
+      </table>
+      <h3>player 1 - x</h3>
+      <h3>player 2 - o</h3>
+    </div>
   </body>
+
+
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
-      console.log('create and begin the game here!');
+      var game = new TicTacToe ();
+
+      // trying to DRY out game code 
+      // not working yet
+
+      // var positions = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+      // for(i = 0; i < positions.length; i++) {
+      //   $('#' + positions[i]).click(function(){
+      //     var pos = positions[i]
+      //     game.play(pos);
+      //     $('#' + pos).text(game.positionAsAttribute(pos))
+      //     console.log(pos)
+      //   })
+      // }
+
+      // on click, change the game.board, change the display, and change the turn
+
+
+      $('#1').click(function () {
+        game.play('1');
+        $('#1').text(game.one)
+      });
+      $('#2').click(function () {
+        game.play('2');
+        $('#2').text(game.two)
+      });
+      $('#3').click(function () {
+        game.play('3');
+        $('#3').text(game.three)
+      });
+      $('#4').click(function () {
+        game.play('4');
+        $('#4').text(game.four)
+      });
+      $('#5').click(function () {
+        game.play('5');
+        $('#5').text(game.five)
+      });
+      $('#6').click(function () {
+        game.play('6');
+        $('#6').text(game.six)
+      });
+      $('#7').click(function () {
+        game.play('7');
+        $('#7').text(game.seven)
+      });
+      $('#8').click(function () {
+        game.play('8');
+        $('#8').text(game.eight)
+      });
+      $('#9').click(function () {
+        game.play('9');
+        $('#9').text(game.nine)
+      });
+
+      // see if someone has one
+      $('body').click(function() {
+        if (game.gameWon() === 'GAME OVER') {
+          $('#game-status').text(game.gameWon);
+          $('body').off("click");
+        } else 
+        if (game.turn === 'playerOne') {
+          $('#game-status').text("player one's turn")
+        } else if (game.turn === 'playerTwo') {
+          $('#game-status').text("player two's turn")
+        };
+      })
+
     })
   </script>
 </html>
