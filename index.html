@@ -8,7 +8,7 @@
 
   <body>
     <h1>Tic Tac Toe</h1>
-    <h3 id="whose-turn"></h3>
+    <h3 id="game-status"></h3>
     <div id="tic-tac-toe">
     	<table>
     		<tr id="rowOne">
@@ -39,21 +39,22 @@
     $(document).on('ready', function() {
       var game = new TicTacToe ();
 
-      // creating array with all the position ids
+      // trying to DRY out game code 
+      // not working yet
+
       // var positions = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
       // for(i = 0; i < positions.length; i++) {
       //   $('#' + positions[i]).click(function(){
-      //     game.selectTilePlayerOne(positions[i]);
-      //     console.log(game.rowOne)
-      //     console.log(positions[i])
+      //     var pos = positions[i]
+      //     game.play(pos);
+      //     $('#' + pos).text(game.positionAsAttribute(pos))
+      //     console.log(pos)
       //   })
       // }
 
-      // show whose turn it is
-
-
       // on click, change the game.board, change the display, and change the turn
+
 
       $('#1').click(function () {
         game.play('1');
@@ -92,10 +93,18 @@
         $('#9').text(game.nine)
       });
 
-
-      // represent tiles based on what's in the position
-
-      // 
+      // see if someone has one
+      $('body').click(function() {
+        if (game.gameWon() === 'GAME OVER') {
+          $('#game-status').text(game.gameWon);
+          $('body').off("click");
+        } else 
+        if (game.turn === 'playerOne') {
+          $('#game-status').text("player one's turn")
+        } else if (game.turn === 'playerTwo') {
+          $('#game-status').text("player two's turn")
+        };
+      })
 
     })
   </script>

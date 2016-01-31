@@ -1,23 +1,16 @@
 function TicTacToe() {
   this.board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-  this.turn = true;
-  this.rowOne = this.board[0];
-  this.rowTwo = this.board[1];
-  this.rowThree = this.board[2];
-  this.colOne = [this.rowOne[0], this.rowTwo[0], this.rowThree[0]];
-  this.colTwo = [this.rowOne[1], this.rowTwo[1], this.rowThree[1]];
-  this.colThree = [this.rowOne[2], this.rowTwo[2], this.rowThree[2]];
-  this.diagRight = [this.rowOne[0], this.rowTwo[1], this.rowThree[2]];
-  this.diagLeft = [this.rowOne[2], this.rowTwo[1], this.rowThree[0]];
-  this.one = this.rowOne[0];
-  this.two = this.rowOne[1];
-  this.three = this.rowOne[2];
-  this.four = this.rowTwo[0];
-  this.five = this.rowTwo[1];
-  this.six = this.rowTwo[2];
-  this.seven = this.rowThree[0];
-  this.eight = this.rowThree[1];
-  this.nine = this.rowThree[2];
+  this.countClick = 0;
+  this.turn = 'playerOne';
+  this.one = this.board[0][0];
+  this.two = this.board[0][1];
+  this.three = this.board[0][2];
+  this.four = this.board[1][0];
+  this.five = this.board[1][1];
+  this.six = this.board[1][2];
+  this.seven = this.board[2][0];
+  this.eight = this.board[2][1];
+  this.nine = this.board[2][2];
 }
 
 TicTacToe.prototype.positionAsAttribute = function(position) {
@@ -40,6 +33,14 @@ TicTacToe.prototype.positionAsAttribute = function(position) {
       return this.eight;
     case '9':
       return this.nine;
+  }
+};
+
+TicTacToe.prototype.switchTurn = function () {
+  if (this.turn === 'playerOne') {
+    this.turn = 'playerTwo';
+  } else if (this.turn === 'playerTwo') {
+    this.turn = 'playerOne';
   }
 };
 
@@ -107,15 +108,51 @@ TicTacToe.prototype.selectTilePlayerTwo = function (position) {
   }
 };
 
+TicTacToe.prototype.gameWon = function() {
+  var t = this;
+  var horizontalWin = function () {
+    if (t.one === t.two && t.two === t.three && t.one !== 0) {
+      return true;
+    } else if (t.three === t.four && t.four === t.five && t.three !== 0) {
+      return true;
+    } else if (t.seven === t.eight && t.eight === t.nine && t.seven !== 0) {
+      return true;
+    }
+  };
+  var verticalWin = function () {
+    if (t.one === t.four && t.four === t.seven && t.one !== 0)  {
+      return true;
+    } else if (t.two === t.five && t.five === t.eight && t.two !== 0) {
+      return true;
+    } else if (t.three === t.six && t.six === t.nine && t.three !== 0) {
+      return true;
+    }
+  };
+  var diagonalWin = function () {
+    if (t.one === t.five && t.five === t.nine && t.one !== 0) {
+      return true;
+    } else if (t.three === t.five && t.five === t.seven && t.three !== 0) {
+      return true;
+    }
+  };
+  if (horizontalWin() === true) {
+    return 'GAME OVER';
+  } else if (verticalWin() === true) {
+    return 'GAME OVER';
+  } else if (diagonalWin() === true) {
+    return 'GAME OVER';
+  }
+};
+
 TicTacToe.prototype.play = function (position) {
   var positionValue = this.positionAsAttribute(position);
   if ( positionValue === 0) {
-    if (this.turn === true) {
+    if (this.turn === 'playerOne') {
       this.selectTilePlayerOne(position);
-    } else if (this.turn === false) {
+    } else if (this.turn === 'playerTwo') {
       this.selectTilePlayerTwo(position);
     }
-    this.turn = !this.turn;
+    this.switchTurn();
   }
 };
 
