@@ -1,7 +1,8 @@
 $(document).on('ready', function() {
   var game = new TicTacToe();
 
-// we could have saved the function to a variable and then passed that variable to click
+// click handler - keep it separate
+// we could have saved the button clicking function to a variable and then passed that variable to click
   $(":button").click( function(){
     if (game.turns % 2 === 0) {
       $(this).css('background-color', 'red');
@@ -23,14 +24,14 @@ $(document).on('ready', function() {
   }
 
   TicTacToe.prototype.play = function(position, marker) {
-  this.won();
   this.turn();
   this.board[position] = marker;
+  this.won();
   };
 
   TicTacToe.prototype.turn = function(){
     this.turns++;
-    if (this.turns % 2 !== 0) {
+    if (this.turns % 2 === 0) {
       this.player = "player1";
     } else {
       this.player = "player2";
@@ -45,14 +46,31 @@ $(document).on('ready', function() {
     }
   };
 
+  TicTacToe.prototype.getPlayerName = function(){
+    if (this.turn % 2 === 0 ) {
+      return "player 1";
+    } else {
+      return "player 2";
+    }
+  };
+
+  // create function for winMessage
+
   TicTacToe.prototype.won = function(){
+    // could also pair this down by creating a row 1 variable
     if (this.board.slice(0,2) === ['x','x','x'] || this.board.slice(0,2) === ['o','o','o']) {
       console.log("You win!");
-      return true;
-    } elseif (this.board.slice(3,5) === ['x','x','x'] || this.board.slice(3,5) === ['o','o','o']) {
+      var div = $('<div class = "won_message"></div>');
+      var winMessage = $('<p></p>');
+      winMessage.text(this.getPlayerName() + "won!");
+      div.append(winMessage);
+      $('body').append('div');
+      debugger;
+      // return true;
+    } else if (this.board.slice(3,5) === ['x','x','x'] || this.board.slice(3,5) === ['o','o','o']) {
       console.log("You win!");
       return true;
-    } elseif (this.board.slice(6,8) === ['x','x','x'] || this.board.slice(6,8) === ['o','o','o']) {
+    } else if (this.board.slice(6,8) === ['x','x','x'] || this.board.slice(6,8) === ['o','o','o']) {
       console.log("You win!");
       return true;
     }
