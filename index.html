@@ -9,13 +9,33 @@
   <body>
     <h1>Tic Tac Toe</h1>
     <div id="tic-tac-toe"></div>
+      <div class="board">
+        <div class="row">
+          <button class="slot 0"></button>
+          <button class="slot 1"></button>
+          <button class="slot 2"></button>
+        </div>
+          <div class="row">
+          <button class="slot 3"></button>
+          <button class="slot 4"></button>
+          <button class="slot 5"></button>
+        </div>
+        <div class="row">
+          <button class="slot 6"></button>
+          <button class="slot 7"></button>
+          <button class="slot 8"></button>
+        </div>
+    </div>
+    <div class="win message">
+      <p></p>
+    </div>
   </body>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
-    $(document).on('ready', function() {
-      console.log('create and begin the game here!');
-    })
+    // $(document).on('ready', function() {
+      // var game = new TicTacToe();
+      // game.play();
+    // })
   </script>
 </html>
-

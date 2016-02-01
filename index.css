@@ -1,3 +1,15 @@
 html {
-  
+  font-size: 16px;
+  color: white;
+}
+
+body {
+  background-color: black;
+}
+
+.slot {
+  background-color: gray;
+  width: 75px;
+  height: 75px;
+  margin: 5px;
 }
