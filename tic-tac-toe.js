@@ -6,7 +6,7 @@ function TicTacToe() {
 TicTacToe.prototype = {
   // check which player and return the appropriate mark
   drawMark: function(player){
-    return player == 1 ? '🍍' : '🌺';
+    return player === 1 ? '🍍' : '🌺';
   },
 
   resetBoard: function(){
@@ -25,7 +25,10 @@ TicTacToe.prototype = {
      }
    });
    if (filled == 0){
-     alert("🍍🌺 Game Over - It's a tie! 🍍🌺");
+     swal({
+    title: "Game Over - It's a tie!",
+    text: "🍍🌺🍍🌺",
+    confirmButtonText: "x" });
      self.resetBoard();
    }
   },
@@ -38,7 +41,17 @@ TicTacToe.prototype = {
       if((board[winConditions[i][0]].innerText == board[winConditions[i][1]].innerText)
       && (board[winConditions[i][0]].innerText == board[winConditions[i][2]].innerText)
       && (board[winConditions[i][0]].innerText != "")){
-        alert("Player "+ self.drawMark(player) + " wins!");
+        if (player === 1){
+          swal({
+         title: "Player 1 wins!",
+         text: "🍍🍍🍍🍍🍍🍍",
+         confirmButtonText: "x" });
+       } else {
+           swal({
+          title: "Player 2 wins!",
+          text: "🌺🌺🌺🌺🌺🌺",
+          confirmButtonText: "x" });
+       }
         self.resetBoard();
       }
     }
@@ -54,7 +67,7 @@ TicTacToe.prototype = {
          $(this).append(self.drawMark(player));
          // switch player
          var origPlayer = player;
-         player == 1? player = 2 : player = 1;
+         player == 1 ? player = 2 : player = 1;
        };
        self.checkForWin(origPlayer);
        self.checkForTie();
