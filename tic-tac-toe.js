@@ -6,33 +6,36 @@ function TicTacToe() {
   var checkSpot = function(col, row, sign , board) {
     if (board[col][row] === sign) {
       return true;
-    } else {return false;}
+    } else {
+      return false;
+    }
   }
 
 TicTacToe.prototype.CheckRow = function(col, row, sign) {
-    if (row === 0) {
-      if (checkSpot(col, 1, sign, this.board) && (checkSpot(col,2, sign, this.board))) {
-        return true;
-    } else if ( row === 1) {
-      if (checkSpot(col, 0, sign, this.board) && (checkSpot(col,2, sign, this.board)))
-        return true;
-    } else {
-      if (checkSpot(col, 0, sign, this.board) && (checkSpot(col,1, sign, this.board)))
-        return true;
+  countSign = 0;
+  for (var i = 0; i < 3 ; i++) {
+    if (checkSpot(col, i, sign, this.board))  {
+      countSign++;
     }
+  }
+  if (countSign === 3) {
+    return true;
+  } else {
+    return false
   }
 };
 
 TicTacToe.prototype.CheckCol = function(col, row, sign) {
-  if (col === 0) {
-    if (checkSpot(1,row, sign, this.board) && (checkSpot(2,row, sign, this.board)))
-      return true;
-  } else if ( col === 1) {
-    if (checkSpot(0, row, sign, this.board) && (checkSpot(2,row, sign, this.board)))
-      return true;
+  countSign = 0;
+  for (var i = 0; i < 3 ; i++) {
+    if (checkSpot(i, row, sign, this.board))  {
+      countSign++;
+    }
+  }
+  if (countSign === 3) {
+    return true;
   } else {
-    if (checkSpot(0, row, sign, this.board) && (checkSpot(1,row, sign, this.board)))
-      return true;
+    return false
   }
 };
 
@@ -60,13 +63,15 @@ TicTacToe.prototype.checkAvai = function(col, row) {
         $(this).text("O");
         game.board[0][0]="O";
         if (game.CheckRow(0,0,"O") || game.CheckCol(0,0,"O") || game.checkOblique(0,0,"O") ) {
-          alert('Y wins'); } else {
+          alert('Y wins');
+        } else {
           game.count ++;}
       } else {
         $(this).text("X");
         game.board[0][0]="X";
-        if (game.CheckRow(0,0,"X") ||game.CheckCol(0,0,"X") || game.checkOblique(0,0,"X") ) {
-          alert('X wins'); } else {
+        if (game.CheckRow(0,0,"X") || game.CheckCol(0,0,"X") || game.checkOblique(0,0,"X") ) {
+          alert('X wins');
+        } else {
           game.count ++;}
         }
     });
