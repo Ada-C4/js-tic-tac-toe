@@ -6,13 +6,14 @@ var TicTacToe = function() {
  this.score = [[9, 9, 9], [9, 9, 9], [9, 9, 9]];
 };
 
-
   TicTacToe.prototype.play = function() {
 //player 1 will be 1s and player 2 will be 2s.
     var self = this;
       self.board.forEach(function(cell) {
         $("#" + cell).click(function() {
-          $("#" + cell).html(self.markBoard()); self.scoreGame($(this)); self.changePlayer();
+          $("#" + cell).html(self.markBoard());
+          self.scoreGame($(this));
+          self.changePlayer();
         });
       }); //ends forEach
     };  // ends play function
@@ -25,18 +26,6 @@ var TicTacToe = function() {
       return "<h1 class='o'>O</h1>";
     }
   };
-
-//This function is called in .play
-  TicTacToe.prototype.changePlayer = function() {
-    if (this.player1) {
-      this.player1 = false;
-      this.player2 = true;
-    } else {
-      this.player2 = false;
-      this.player1 = true;
-    }
-  };
-
 
 // This function is called in .play (before changePlayer)
   TicTacToe.prototype.scoreGame = function(clicked) {
@@ -68,6 +57,12 @@ var TicTacToe = function() {
       this.score[2][2] = point;
     }
   };
+
+  //This function is called in .play
+    TicTacToe.prototype.changePlayer = function() {
+      this.player1 = !this.player1;
+      this.player2 = !this.player2;
+    };
 
 // decide a winner
   TicTacToe.prototype.checkWinner = function() {
