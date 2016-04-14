@@ -36,14 +36,14 @@ body {
   width: 510px;
 }
 
-#one {
+#r0c0 {
   height: 166px;
   width: 166px;
   display: inline;
   float: left;
 }
 
-#two {
+#r0c1 {
   height: 166px;
   width: 166px;
   border-left: 4px solid red;
@@ -52,44 +52,21 @@ body {
   float: left;
 }
 
-#three {
+#r0c2 {
   height: 166px;
   width: 166px;
   display: inline;
   float: left;
 }
 
-#four {
+#r1c0 {
   height: 166px;
   width: 166px;
   display: inline;
   float: left;
 }
 
-#five {
-  height: 166px;
-  width: 166px;
-  border-right: 4px solid red;
-  border-left: 4px solid red;
-  display: inline;
-  float: left;
-}
-
-#six {
-  height: 166px;
-  width: 166px;
-  display: inline;
-  float: left;
-}
-
-#seven {
-  height: 166px;
-  width: 166px;
-  display: inline;
-  float: left;
-}
-
-#eight {
+#r1c1 {
   height: 166px;
   width: 166px;
   border-right: 4px solid red;
@@ -98,7 +75,30 @@ body {
   float: left;
 }
 
-#nine {
+#r1c2 {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+#r2c0 {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+#r2c1 {
+  height: 166px;
+  width: 166px;
+  border-right: 4px solid red;
+  border-left: 4px solid red;
+  display: inline;
+  float: left;
+}
+
+#r2c2 {
   height: 166px;
   width: 166px;
   display: inline;

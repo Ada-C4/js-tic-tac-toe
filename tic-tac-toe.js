@@ -1,6 +1,6 @@
 var TicTacToe = function() {
  // initialize things when a new game starts
- this.board = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+ this.board = ["r0c0", "r0c1", "r0c2", "r1c0", "r1c1", "r1c2", "r2c0", "r2c1", "r2c2"];
  this.player1 = true;
  this.player2 = false;
  this.score = [[9, 9, 9], [9, 9, 9], [9, 9, 9]];
@@ -13,7 +13,8 @@ var TicTacToe = function() {
         $("#" + cell).click(function() {
           $("#" + cell).html(self.markBoard());
           self.scoreGame($(this));
-          self.changePlayer();
+          self.checkWinner();
+          self.changePlayer($(this));
         });
       }); //ends forEach
     };  // ends play function
@@ -37,21 +38,21 @@ var TicTacToe = function() {
       point = 2;
     }
 // put point in 2D scoring array
-    if (clicked.attr("id") === "one") {
+    if (clicked.attr("id") === "r0c0") {
       this.score[0][0] = point;
-    } else if (clicked.attr("id") === "two") {
+    } else if (clicked.attr("id") === "r0c1") {
       this.score[0][1] = point;
-    } else if (clicked.attr("id") === "three") {
+    } else if (clicked.attr("id") === "r0c2") {
       this.score[0][2] = point;
-    } else if (clicked.attr("id") === "four") {
+    } else if (clicked.attr("id") === "r1c0") {
       this.score[1][0] = point;
-    } else if (clicked.attr("id") === "five") {
+    } else if (clicked.attr("id") === "r1c1") {
       this.score[1][1] = point;
-    } else if (clicked.attr("id") === "six") {
+    } else if (clicked.attr("id") === "r1c2") {
       this.score[1][2] = point;
-    } else if (clicked.attr("id") === "seven") {
+    } else if (clicked.attr("id") === "r2c0") {
       this.score[2][0] = point;
-    } else if (clicked.attr("id") === "eight") {
+    } else if (clicked.attr("id") === "r2c1") {
       this.score[2][1] = point;
     } else {
       this.score[2][2] = point;
@@ -66,6 +67,10 @@ var TicTacToe = function() {
 
 // decide a winner
   TicTacToe.prototype.checkWinner = function() {
+    var n = 0;
+    if (this.score[n].toString() === "2,2,2") {
+      alert("Nice job O!");
+    }
 // check to see if score has certain patterns in it
 // For example, if there are all 1s this.score[0], player 1 has won.
 // Alert player that they have won.
