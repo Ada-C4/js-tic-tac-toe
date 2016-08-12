@@ -1,3 +1,124 @@
 html {
-  
+
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-size: 3em;
+}
+
+body {
+  background-color: #7c8977;
+  margin: 0;
+}
+
+#tic-tac-toe {
+  width: 960px;
+  margin: auto;
+  padding-left: 450px;
+}
+
+#top-row {
+  border-bottom: 2px solid red;
+  height: 166px;
+  width: 510px;
+}
+
+#mid-row {
+  height: 166px;
+  width: 510px;
+}
+
+#bottom-row {
+  border-top: 2px solid red;
+  height: 166px;
+  width: 510px;
+}
+
+#r0c0 {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+#r0c1 {
+  height: 166px;
+  width: 166px;
+  border-left: 4px solid red;
+  border-right: 4px solid red;
+  display: inline;
+  float: left;
+}
+
+#r0c2 {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+#r1c0 {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+#r1c1 {
+  height: 166px;
+  width: 166px;
+  border-right: 4px solid red;
+  border-left: 4px solid red;
+  display: inline;
+  float: left;
+}
+
+#r1c2 {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+#r2c0 {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+#r2c1 {
+  height: 166px;
+  width: 166px;
+  border-right: 4px solid red;
+  border-left: 4px solid red;
+  display: inline;
+  float: left;
+}
+
+#r2c2 {
+  height: 166px;
+  width: 166px;
+  display: inline;
+  float: left;
+}
+
+.x {
+  color: white;
+  text-align: center;
+  margin-top: 60px;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 5em;
+  margin: 0;
+}
+
+.o {
+  color: black;
+  text-align: center;
+  margin-top: 60px;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 5em;
+  margin: 0;
 }
